@@ -37,10 +37,10 @@ The DC WooCommerce Multi Vendor Plugin is an extension of WooCommerce that allow
 This plugin is highly configurable, with options to customize almost every feature you may think of.
 
 Click to see the Live Demo [Admin Panel](http://demo.dualcube.com/wordpress/plugins/dc_woocommerce_multi_vendor/wp-admin "Link for WP-Admin")
-* Administrator Access=> Username: "demo" Password: "demo"
+( Administrator Access=> Username: "demo" Password: "demo" )
 
 Click to see the Live Demo [Vendor Dashboard](http://demo.dualcube.com/wordpress/plugins/dc_woocommerce_multi_vendor/my-account "Link for Vendor Dashboard")
-* Vendor Access=> Username: "demo_vendor" Password: "demo_vendor"
+( Vendor Access=> Username: "demo_vendor" Password: "demo_vendor" )
 
 
 = Feedback =
