@@ -36,7 +36,7 @@ The DC WooCommerce Multi Vendor Plugin is an extension of WooCommerce that allow
 = Configurable =
 This plugin is highly configurable, with options to customize almost every feature you may think of.
 
-== Feedback ==
+= Feedback =
 All we want is love. We are extremely responsive about support requests - so if you face a problem or find any bugs, shoot us a mail WooCommerce or post it in the support forum, and we will respond within 48 hours(during business days). If you get the impulse to rate the plugin low because it is not working as it should, please do wait for our response because the root cause of the problem may be something else.
 It is extremely disheartening when trigger happy users downrate a plugin for no fault of the plugin.
 
