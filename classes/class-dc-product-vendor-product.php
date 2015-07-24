@@ -21,8 +21,68 @@ class DC_Product_Vendor_Product {
 		}
 		add_action( 'woocommerce_product_thumbnails', array( $this, 'add_report_abuse_link' ), 30 );
 		add_filter( 'woocommerce_product_tabs', array( $this, 'product_vendor_tab' ) );
+		
+		add_filter( 'wp_count_posts', array( &$this, 'vendor_count_products' ), 10, 3 );
 	}
 	
+	public function filter_products_list( $request ) {
+		global $typenow;
+
+		$current_user = wp_get_current_user();
+
+		if ( is_admin() && is_user_dc_vendor($current_user) && 'product' == $typenow ) {
+				$request[ 'author' ] = $current_user->ID;
+				$term_id = get_user_meta($current_user->ID, '_vendor_term_id', true);
+				$taxquery = array(
+						array(
+								'taxonomy' => 'dc_vendor_shop',
+								'field' => 'id',
+								'terms' => array( $term_id ),
+								'operator'=> 'IN'
+						)
+				);
+	
+			$request['tax_query'] = $taxquery;
+		}
+
+		return $request;
+	}
+
+        
+	public function vendor_count_products( $counts, $type, $perm ) {
+		$current_user = wp_get_current_user();
+
+		if ( is_user_dc_vendor($current_user) && 'product' == $type ) {
+			$term_id = get_user_meta($current_user->ID, '_vendor_term_id', true);
+			
+			$args = array(
+				'post_type' => $type,
+				'tax_query' => array(
+					array(
+							'taxonomy' => 'dc_vendor_shop',
+							'field' => 'id',
+							'terms' => array( $term_id ),
+							'operator'=> 'IN'
+					),
+				),
+			);
+
+			/**
+			 * Get a list of post statuses.
+			 */
+			$stati = get_post_stati();
+
+			// Update count object
+			foreach ( $stati as $status ) {
+					$args['post_status'] = $status;
+					$query = new WP_Query( $args );
+					$posts = $query->get_posts();
+					$counts->$status     = count( $posts );
+			}
+		}
+
+		return $counts;
+	}
 	
 	/**
 	* notify admin on publish product by vendor

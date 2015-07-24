@@ -119,6 +119,11 @@ class DC_Product_Vendor_Admin {
 									}';									
 						echo '</style>';
 					}
+					echo '<style type="text/css">';
+					echo '#menu-tools, #menu-comments, #menu-appearance{ 
+										display : none;
+									}';	
+					echo '</style>';
 				} else {
 					echo '<style type="text/css">';
 					echo '#toplevel_page_woocommerce { 
