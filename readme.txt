@@ -13,6 +13,21 @@ A Free Extension That Transforms Your WooCommerce Site into a Marketplace.
 == Description ==
 The DC WooCommerce Multi Vendor Plugin is an extension of WooCommerce that allows you to transform your Wordpress-WooCommerce site into a marketplace, something like Etsy.  This plugin has the longest list of features, and comes with free support that beats paid ones.
 
+= Features =
+
+* Users can register as vendor, and admin approve / disapprove vendors' registration.
+* Vendors can configurte their stores. (Add logo, store description, banner.)
+* Vendor commissions are calculated and payment is done automatically.
+* Vendors can export order details (all of his/her products' orders / for a particular product) in CSV format.
+* Vendors can add products.
+* Vendors can add coupons for their products.
+* Vendors can add comments in their orders and can ship orders.
+* Admin can set commission for a particular product, vendor or globally. Global commission has the least priority and product specific commission has higher priority than vendor specific commission.
+* Admin can export unpaid commission data (in Paypal masspay format).
+* Admin can view sales report overview / for a particular product / vendor.
+* Customers can report abuse products.
+* Provides useful widgets like google map store locater, available vendors' list, vendors' description and quick info.
+
 = Compatibility =
 * WooCommerce 2.0+
 * WordPress 3.8.1+
