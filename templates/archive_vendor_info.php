@@ -23,15 +23,25 @@ global $DC_Product_Vendor;
 		</div>
 		<div class="description">
 			<div class="social_profile">
-				<a href="<?php echo get_user_meta($vendor_id,'_vendor_fb_profile', true);?>"><img src="<?php echo $DC_Product_Vendor->plugin_url . 'assets/images/facebook.png';?>" alt="facebook" height="20" width="20" ></a>
-				<a href="<?php echo get_user_meta($vendor_id,'_vendor_twitter_profile', true);?>"><img src="<?php echo $DC_Product_Vendor->plugin_url . 'assets/images/twitter.png';?>" alt="twitter" height="20" width="20" ></a>
-				<a href="<?php echo get_user_meta($vendor_id,'_vendor_linkdin_profile', true);?>"><img src="<?php echo $DC_Product_Vendor->plugin_url . 'assets/images/linkedin.png';?>" alt="linkedin" height="20" width="20" ></a>
-				<a href="<?php echo get_user_meta($vendor_id,'_vendor_google_plus_profile', true);?>"><img src="<?php echo $DC_Product_Vendor->plugin_url . 'assets/images/google-plus.png';?>" alt="google_plus" height="20" width="20" ></a>
-				<a href="<?php echo get_user_meta($vendor_id,'_vendor_youtube', true);?>"><img src="<?php echo $DC_Product_Vendor->plugin_url . 'assets/images/youtube.png';?>" alt="youtube" height="20" width="20" ></a>
+			<?php
+				$vendor_fb_profile = get_user_meta($vendor_id,'_vendor_fb_profile', true);
+				$vendor_twitter_profile = get_user_meta($vendor_id,'_vendor_twitter_profile', true);
+				$vendor_linkdin_profile = get_user_meta($vendor_id,'_vendor_linkdin_profile', true);
+				$vendor_google_plus_profile = get_user_meta($vendor_id,'_vendor_google_plus_profile', true);
+				$vendor_youtube = get_user_meta($vendor_id,'_vendor_youtube', true);
+			?>
+				<?php if($vendor_fb_profile) { ?> <a href="<?php echo $vendor_fb_profile; ?>"><img src="<?php echo $DC_Product_Vendor->plugin_url . 'assets/images/facebook.png';?>" alt="facebook" height="20" width="20" ></a><?php } ?>
+				<?php if($vendor_twitter_profile) { ?> <a href="<?php echo $vendor_twitter_profile; ?>"><img src="<?php echo $DC_Product_Vendor->plugin_url . 'assets/images/twitter.png';?>" alt="twitter" height="20" width="20" ></a><?php } ?>
+				<?php if($vendor_linkdin_profile) { ?> <a href="<?php echo $vendor_linkdin_profile; ?>"><img src="<?php echo $DC_Product_Vendor->plugin_url . 'assets/images/linkedin.png';?>" alt="linkedin" height="20" width="20" ></a><?php } ?>
+				<?php if($vendor_google_plus_profile) { ?> <a href="<?php echo $vendor_google_plus_profile; ?>"><img src="<?php echo $DC_Product_Vendor->plugin_url . 'assets/images/google-plus.png';?>" alt="google_plus" height="20" width="20" ></a><?php } ?>
+				<?php if($vendor_youtube) { ?> <a href="<?php echo $vendor_youtube; ?>"><img src="<?php echo $DC_Product_Vendor->plugin_url . 'assets/images/youtube.png';?>" alt="youtube" height="20" width="20" ></a><?php } ?>
 			</div>
 		</div>
 	</div>
 </div>	
+<?php 
+$vendor_hide_description = get_user_meta($vendor_id,'_vendor_hide_description', true);
+if(!$vendor_hide_description) { ?>
 <div class="description_data">
 	<?php
 		$string = strip_tags($description);
@@ -49,3 +59,4 @@ global $DC_Product_Vendor;
 		</tbody>
 	</table>
 </div>
+<?php } ?>

@@ -245,6 +245,16 @@ class DC_Product_Vendor_User {
 				'value' => $vendor->description,
 				'class'	=> "user-profile-fields"
 			), //Wp Eeditor
+			
+			"vendor_hide_description" => array(
+				'label' => __('Hide description in frontend', $DC_Product_Vendor->text_domain), 
+				'type' => 'checkbox',
+				'hints' => __('Hide Description on Vendor Shop Page.', $DC_Product_Vendor->text_domain),
+				'dfvalue' => $vendor->hide_description,
+				'value' => 'Enable',
+				'class' => 'user-profile-fields'
+			),
+			
 			"vendor_company" => array(
 				'label' => __('Vendor Company', $DC_Product_Vendor->text_domain),
 				'type' => 'text',
@@ -562,7 +572,7 @@ class DC_Product_Vendor_User {
 		$fields = $this->get_vendor_fields( $user_id );
 		$vendor = get_dc_vendor( $user_id );
 		foreach( $fields as $fieldkey => $value ) {
-			if ( isset( $_POST[ $fieldkey ] ) && !empty( $_POST[$fieldkey] ) ) {
+			if ( isset( $_POST[ $fieldkey ] ) ) {
 				if ( $fieldkey == 'vendor_page_title' ) {
 					if( ! $vendor->update_page_title( wc_clean( $_POST[$fieldkey] ) ) ) {
 						$errors->add( 'vendor_title_exists', __( 'Title Update Error', $DC_Product_Vendor->text_domain ) );
@@ -580,6 +590,8 @@ class DC_Product_Vendor_User {
 				delete_user_meta($user_id, '_vendor_submit_product');
 			} else if(!isset( $_POST['vendor_submit_coupon'] ) && $fieldkey == 'vendor_submit_coupon') {
 				delete_user_meta($user_id, '_vendor_submit_coupon');
+			} else if(!isset( $_POST['vendor_hide_description'] ) && $fieldkey == 'vendor_hide_description') {
+				delete_user_meta($user_id, '_vendor_hide_description');
 			}
 		}
 		$this->user_change_cap( $user_id );

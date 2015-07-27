@@ -32,8 +32,10 @@ class WC_Shop_Setting_Shortcode {
 								wp_update_user( array( 'ID' => $user_id, 'display_name' => $_POST[ $fieldkey ]  ) );
 							}
 						} 
+					} else if(!isset( $_POST['vendor_hide_description'] ) && $fieldkey == 'vendor_hide_description') {
+						delete_user_meta($user_id, '_vendor_hide_description');
 					}
-				}
+				} 
 			}
 		}
 		$DC_Product_Vendor->template->get_template( 'shortcode/shop_settings.php', $DC_Product_Vendor->user->get_vendor_fields( get_current_user_id() ) );

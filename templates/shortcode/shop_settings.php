@@ -14,7 +14,7 @@ global $DC_Product_Vendor;
 $user = wp_get_current_user();
 $vendor = get_dc_vendor($user->ID);
 if($vendor) {
-	
+$vendor_hide_description = get_user_meta($user->ID, '_vendor_hide_description', true);
 ?>
 
 <div class="shop_settings_shortcode">
@@ -33,6 +33,11 @@ if($vendor) {
 		<p class="vendor_description">
 			<label style="width: 160px; display: inline-block;"><strong><?php _e('Biographical Info', $DC_Product_Vendor->text_domain) ?></strong>
 			<?php wp_editor( $vendor_description['value'], 'listingeditor', array('textarea_name' => vendor_description, 'textarea_rows' => 5) ); ?>
+		</p>
+		
+		<p class="vendor_hide_description">
+			<label style="width: 160px; display: inline-block;"><strong><?php _e('Hide description in Vendor Shop', $DC_Product_Vendor->text_domain) ?></strong></label>
+			<input type="checkbox" id="vendor_hide_description" name="vendor_hide_description" <?php if($vendor_hide_description == 'Enable') echo 'checked=checked'; ?> class="user-profile-fields" value="Enable">
 		</p>
 		
 		<p class="vendor_company">

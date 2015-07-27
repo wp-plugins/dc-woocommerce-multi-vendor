@@ -47,3 +47,6 @@
   float: left;
   width: 20.5%;
 }
+.vendor_hide_description {
+	clear: both;
+}
