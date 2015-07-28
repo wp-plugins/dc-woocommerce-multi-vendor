@@ -111,37 +111,38 @@ class WC_Email_Vendor_New_Order extends WC_Email {
      * @return void
      */
     function init_form_fields() {
+    	global $DC_Product_Vendor;
     	$this->form_fields = array(
 			'enabled' => array(
-				'title' 		=> __( 'Enable/Disable', 'woocommerce' ),
+				'title' 		=> __( 'Enable/Disable', $DC_Product_Vendor->text_domain  ),
 				'type' 			=> 'checkbox',
-				'label' 		=> __( 'Enable this email notification', 'woocommerce' ),
+				'label' 		=> __( 'Enable this email notification', $DC_Product_Vendor->text_domain ),
 				'default' 		=> 'yes'
 			),
 			'subject' => array(
-				'title' 		=> __( 'Subject', 'woocommerce' ),
+				'title' 		=> __( 'Subject', $DC_Product_Vendor->text_domain ),
 				'type' 			=> 'text',
-				'description' 	=> sprintf( __( 'This controls the email subject line. Leave blank to use the default subject: <code>%s</code>.', 'woocommerce' ), $this->subject ),
+				'description' 	=> sprintf( __( 'This controls the email subject line. Leave blank to use the default subject: <code>%s</code>.', $DC_Product_Vendor->text_domain ), $this->subject ),
 				'placeholder' 	=> '',
 				'default' 		=> ''
 			),
 			'heading' => array(
-				'title' 		=> __( 'Email Heading', 'woocommerce' ),
+				'title' 		=> __( 'Email Heading', $DC_Product_Vendor->text_domain ),
 				'type' 			=> 'text',
-				'description' 	=> sprintf( __( 'This controls the main heading contained within the email notification. Leave blank to use the default heading: <code>%s</code>.', 'woocommerce' ), $this->heading ),
+				'description' 	=> sprintf( __( 'This controls the main heading contained within the email notification. Leave blank to use the default heading: <code>%s</code>.', $DC_Product_Vendor->text_domain ), $this->heading ),
 				'placeholder' 	=> '',
 				'default' 		=> ''
 			),
 			'email_type' => array(
-				'title' 		=> __( 'Email type', 'woocommerce' ),
+				'title' 		=> __( 'Email type', $DC_Product_Vendor->text_domain ),
 				'type' 			=> 'select',
-				'description' 	=> __( 'Choose which format of email to send.', 'woocommerce' ),
+				'description' 	=> __( 'Choose which format of email to send.', $DC_Product_Vendor->text_domain),
 				'default' 		=> 'html',
 				'class'			=> 'email_type',
 				'options'		=> array(
-					'plain'		 	=> __( 'Plain text', 'woocommerce' ),
-					'html' 			=> __( 'HTML', 'woocommerce' ),
-					'multipart' 	=> __( 'Multipart', 'woocommerce' ),
+					'plain'		 	=> __( 'Plain text', $DC_Product_Vendor->text_domain ),
+					'html' 			=> __( 'HTML', $DC_Product_Vendor->text_domain ),
+					'multipart' 	=> __( 'Multipart', $DC_Product_Vendor->text_domain ),
 				)
 			)
 		);

@@ -139,7 +139,7 @@ if($vendor && isset($_GET['orders_for_product']) && !empty($_GET['orders_for_pro
 								?>
 								<a href="#" class="order-comments-link">
 									<p>
-										<?php printf( __( 'Comments (%s)', 'wcvendors' ), count( $comments ) ); ?>
+										<?php printf( __( 'Comments (%s)', $DC_Product_Vendor->text_domain ), count( $comments ) ); ?>
 									</p>
 								</a>
 
@@ -153,7 +153,7 @@ if($vendor && isset($_GET['orders_for_product']) && !empty($_GET['orders_for_pro
 											$last_added = human_time_diff( strtotime( $comment->comment_date_gmt ), current_time( 'timestamp', 1 ) );
 											?>
 											<p>
-												<?php printf( __( 'added %s ago', 'wcvendors' ), $last_added ); ?>
+												<?php printf( __( 'added %s ago', $DC_Product_Vendor->text_domain ), $last_added ); ?>
 												</br>
 												<?php echo $comment->comment_content; ?>
 											</p>
@@ -170,7 +170,7 @@ if($vendor && isset($_GET['orders_for_product']) && !empty($_GET['orders_for_pro
 											<input type="hidden" name="product_id" value="<?php echo $product_id ?>">
 											<input type="hidden" name="order_id" value="<?php echo $order_id; ?>">
 										
-											<input class="btn btn-large btn-block" type="submit" name="dc_submit_comment" value="<?php _e( 'Add comment', 'wcvendors' ); ?>">
+											<input class="btn btn-large btn-block" type="submit" name="dc_submit_comment" value="<?php _e( 'Add comment', $DC_Product_Vendor->text_domain ); ?>">
 										
 										</form>
 									<?php	} ?>

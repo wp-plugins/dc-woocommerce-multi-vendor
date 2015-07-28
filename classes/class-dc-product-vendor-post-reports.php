@@ -91,39 +91,39 @@ class DC_Product_Vendor_Plugin_Post_Reports {
 		<div id="poststuff" class="woocommerce-reports-wrap">
 		<div class="woocommerce-reports-sidebar">
 			<div class="postbox">
-				<h3><span><?php _e( 'Total sales', 'woocommerce' ); ?></span></h3>
+				<h3><span><?php _e( 'Total sales', $DC_Product_Vendor->text_domain ); ?></span></h3>
 				<div class="inside">
-					<p class="stat"><?php if ( $total_sales > 0 ) echo woocommerce_price( $total_sales ); else _e( 'n/a', 'woocommerce' ); ?></p>
+					<p class="stat"><?php if ( $total_sales > 0 ) echo woocommerce_price( $total_sales ); else _e( 'n/a', $DC_Product_Vendor->text_domain ); ?></p>
 				</div>
 			</div>
 			<div class="postbox">
-				<h3><span><?php _e( 'Total orders', 'woocommerce' ); ?></span></h3>
+				<h3><span><?php _e( 'Total orders', $DC_Product_Vendor->text_domain ); ?></span></h3>
 				<div class="inside">
-					<p class="stat"><?php if ( $total_orders > 0 ) echo $total_orders; else _e( 'n/a', 'woocommerce' ); ?></p>
+					<p class="stat"><?php if ( $total_orders > 0 ) echo $total_orders; else _e( 'n/a', $DC_Product_Vendor->text_domain ); ?></p>
 				</div>
 			</div>
 			<div class="postbox">
-				<h3><span><?php _e( 'Average order total', 'woocommerce' ); ?></span></h3>
+				<h3><span><?php _e( 'Average order total', $DC_Product_Vendor->text_domain ); ?></span></h3>
 				<div class="inside">
-					<p class="stat"><?php if ( $total_orders > 0 ) echo woocommerce_price( $total_sales / $total_orders ); else _e( 'n/a', 'woocommerce' ); ?></p>
+					<p class="stat"><?php if ( $total_orders > 0 ) echo woocommerce_price( $total_sales / $total_orders ); else _e( 'n/a', $DC_Product_Vendor->text_domain ); ?></p>
 				</div>
 			</div>
 			<div class="postbox">
-				<h3><span><?php _e( 'Total earned', 'wc_product_vendors' ); ?></span></h3>
+				<h3><span><?php _e( 'Total earned', $DC_Product_Vendor->text_domain ); ?></span></h3>
 				<div class="inside">
-					<p class="stat"><?php if ( $total_earnings > 0 ) echo woocommerce_price( $total_earnings ); else _e( 'n/a', 'woocommerce' ); ?></p>
+					<p class="stat"><?php if ( $total_earnings > 0 ) echo woocommerce_price( $total_earnings ); else _e( 'n/a', $DC_Product_Vendor->text_domain ); ?></p>
 				</div>
 			</div>
 			<div class="postbox">
-				<h3><span><?php _e( 'Total earned by vendors', 'wc_product_vendors' ); ?></span></h3>
+				<h3><span><?php _e( 'Total earned by vendors', $DC_Product_Vendor->text_domain ); ?></span></h3>
 				<div class="inside">
-					<p class="stat"><?php if ( $total_vendor_earnings > 0 ) echo woocommerce_price( $total_vendor_earnings ); else _e( 'n/a', 'woocommerce' ); ?></p>
+					<p class="stat"><?php if ( $total_vendor_earnings > 0 ) echo woocommerce_price( $total_vendor_earnings ); else _e( 'n/a', $DC_Product_Vendor->text_domain ); ?></p>
 				</div>
 			</div>
 		</div>
 		<div class="woocommerce-reports-main">
 			<div class="postbox">
-				<h3><span><?php _e( 'This month\'s sales', 'woocommerce' ); ?></span></h3>
+				<h3><span><?php _e( 'This month\'s sales', $DC_Product_Vendor->text_domain ); ?></span></h3>
 				<div class="inside chart">
 					<div id="placeholder" style="width:100%; overflow:hidden; height:568px; position:relative;"></div>
 					<div id="cart_legend"></div>
@@ -194,17 +194,17 @@ class DC_Product_Vendor_Plugin_Post_Reports {
 			}
 			wp_reset_postdata();
 			
-			$chart_data[ __( 'Total earned', 'wc_product_vendors' ) ][] = array(
+			$chart_data[ __( 'Total earned', $DC_Product_Vendor->text_domain ) ][] = array(
 				$date . '000',
 				$total_earnings
 			);
 			
-			$chart_data[ __( 'Total earned by vendors', 'wc_product_vendors' ) ][] = array(
+			$chart_data[ __( 'Total earned by vendors', $DC_Product_Vendor->text_domain ) ][] = array(
 				$date . '000',
 				$total_vendor_earnings
 			);
 			
-			$chart_data[ __( 'Number of orders', 'wc_product_vendors' ) ][] = array(
+			$chart_data[ __( 'Number of orders', $DC_Product_Vendor->text_domain ) ][] = array(
 				$date . '000',
 				$order_count
 			);
@@ -305,7 +305,7 @@ class DC_Product_Vendor_Plugin_Post_Reports {
 		?>
 		<form name="search_product_form" method="post" action="">
 			<p>
-				<select id="search_product" name="search_product" class="ajax_chosen_select_products_and_variations" data-placeholder="Search for product&hellip;" style="min-width:400px;"><?php echo $option; ?></select> <input type="submit" style="vertical-align: top;" class="button" value="<?php _e( 'Show', 'woocommerce' ); ?>" />
+				<select id="search_product" name="search_product" class="ajax_chosen_select_products_and_variations" data-placeholder="Search for product&hellip;" style="min-width:400px;"><?php echo $option; ?></select> <input type="submit" style="vertical-align: top;" class="button" value="<?php _e( 'Show', $DC_Product_Vendor->text_domain ); ?>" />
 			</p>
 		</form>
 		<?php
@@ -397,12 +397,12 @@ class DC_Product_Vendor_Plugin_Post_Reports {
 		}
 		if( isset( $product_id )) {
 			?>
-			<h4><?php printf( __( 'Sales and earnings for %s:', 'wc_product_vendors' ), $vendor->title ); ?></h4>
+			<h4><?php printf( __( 'Sales and earnings for %s:', $DC_Product_Vendor->text_domain ), $vendor->title ); ?></h4>
 			<table class="bar_chart">
 				<thead>
 					<tr>
-						<th><?php _e( 'Month', 'woocommerce' ); ?></th>
-						<th colspan="2"><?php _e( 'Sales', 'woocommerce' ); ?></th>
+						<th><?php _e( 'Month', $DC_Product_Vendor->text_domain ); ?></th>
+						<th colspan="2"><?php _e( 'Sales', $DC_Product_Vendor->text_domain ); ?></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -423,7 +423,7 @@ class DC_Product_Vendor_Plugin_Post_Reports {
 								</td></tr>';
 							}
 						} else {
-							echo '<tr><td colspan="3">' . __( 'No sales :(', 'woocommerce' ) . '</td></tr>';
+							echo '<tr><td colspan="3">' . __( 'No sales :(', $DC_Product_Vendor->text_domain ) . '</td></tr>';
 						}
 					?>
 				</tbody>
@@ -459,22 +459,22 @@ class DC_Product_Vendor_Plugin_Post_Reports {
 		}
 		?>
 		<form method="post" action="">
-			<p><select id="vendor" name="vendor" class="ajax_chosen_select_vendor" data-placeholder="<?php _e( 'Search for a vendor&hellip;', 'wc_product_vendors' ); ?>" style="width: 400px;"><?php echo $option; ?></select> <input type="submit" style="vertical-align: top;" class="button" value="<?php _e( 'Show', 'woocommerce' ); ?>" /></p>
+			<p><select id="vendor" name="vendor" class="ajax_chosen_select_vendor" data-placeholder="<?php _e( 'Search for a vendor&hellip;', $DC_Product_Vendor->text_domain ); ?>" style="width: 400px;"><?php echo $option; ?></select> <input type="submit" style="vertical-align: top;" class="button" value="<?php _e( 'Show', $DC_Product_Vendor->text_domain ); ?>" /></p>
 		</form>
 		<?php
 		
 		if($vendor_id && empty($products)) { ?>
-			<h4><?php printf( __( 'Sales and earnings for %s:', 'wc_product_vendors' ), $vendor->title ); ?></h4>
+			<h4><?php printf( __( 'Sales and earnings for %s:', $DC_Product_Vendor->text_domain ), $vendor->title ); ?></h4>
 			<table class="bar_chart">
 				<thead>
 					<tr>
-						<th><?php _e( 'Month', 'woocommerce' ); ?></th>
-						<th colspan="2"><?php _e( 'Sales', 'woocommerce' ); ?></th>
+						<th><?php _e( 'Month', $DC_Product_Vendor->text_domain ); ?></th>
+						<th colspan="2"><?php _e( 'Sales', $DC_Product_Vendor->text_domain ); ?></th>
 					</tr>
 				</thead>
 				<tbody> 
 					<?php
-						echo '<tr><td colspan="3">' . __( 'No sales :(', 'woocommerce' ) . '</td></tr>';
+						echo '<tr><td colspan="3">' . __( 'No sales :(', $DC_Product_Vendor->text_domain ) . '</td></tr>';
 					?>
 				</tbody>
 			</table>
@@ -559,12 +559,12 @@ class DC_Product_Vendor_Plugin_Post_Reports {
 				}
 			}
 			?>
-			<h4><?php printf( __( 'Sales and earnings for %s:', 'wc_product_vendors' ), $vendor->title ); ?></h4>
+			<h4><?php printf( __( 'Sales and earnings for %s:', $DC_Product_Vendor->text_domain ), $vendor->title ); ?></h4>
 			<table class="bar_chart">
 				<thead>
 					<tr>
-						<th><?php _e( 'Month', 'woocommerce' ); ?></th>
-						<th colspan="2"><?php _e( 'Sales', 'woocommerce' ); ?></th>
+						<th><?php _e( 'Month', $DC_Product_Vendor->text_domain ); ?></th>
+						<th colspan="2"><?php _e( 'Sales', $DC_Product_Vendor->text_domain ); ?></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -585,7 +585,7 @@ class DC_Product_Vendor_Plugin_Post_Reports {
 								</td></tr>';
 							}
 						} else {
-							echo '<tr><td colspan="3">' . __( 'No sales :(', 'woocommerce' ) . '</td></tr>';
+							echo '<tr><td colspan="3">' . __( 'No sales :(', $DC_Product_Vendor->text_domain ) . '</td></tr>';
 						}
 					?>
 				</tbody>
@@ -685,7 +685,7 @@ class DC_Product_Vendor_Plugin_Post_Reports {
 
 			$html .= '<div class="product_vendors_report_form">
 									<form name="product_vendors_report" action="' . get_permalink() . '" method="post">
-											' . __( 'Select report date:', 'wc_product_vendors' ) . '
+											' . __( 'Select report date:', $DC_Product_Vendor->text_domain ) . '
 											<select name="report_month">' . $month_options . '</select>
 											<select name="report_year">' . $year_options . '</select>
 											<input type="submit" class="button" value="Submit" />

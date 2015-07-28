@@ -3,7 +3,7 @@
  *  DC Vendor Admin Dashboard - Vendor WP-Admin Dashboard Pages
  * 
  * @author dualcube
- * @package WCVendors
+ * @package DCVendors
  */
 
 Class DC_Vendor_Admin_Dashboard { 
@@ -239,7 +239,6 @@ Class DC_Vendor_Admin_Dashboard {
 				
 				// Don't submit empty comments
 				if ( empty( $_POST[ 'comment_text' ] ) ) {
-					//wc_add_notice( __( 'You\'ve left the comment field empty!', 'wcvendors' ), 'error' );
 					return false;
 				}
 
@@ -247,7 +246,6 @@ Class DC_Vendor_Admin_Dashboard {
 				$order = new WC_Order ( $_POST['order_id'] );
 				$comment = esc_textarea( $_POST[ 'comment_text' ] );
 				$order->add_order_note( $comment, 1 );
-				//wc_add_notice( __( 'Success. The customer has been notified of your comment.', 'wcvendors' ), 'success' );
 			}
 		}
 	}
@@ -302,14 +300,14 @@ Class DC_Vendor_Admin_Dashboard {
 	 */
 	public static function orders_page()
 	{
-		global $woocommerce, $DC_Vendor_Order_Page;
+		global $woocommerce, $DC_Vendor_Order_Page, $DC_Product_Vendor;
 		$DC_Vendor_Order_Page->prepare_items();
 
 		?>
 		<div class="wrap">
 
 			<div id="icon-woocommerce" class="icon32 icon32-woocommerce-reports"><br/></div>
-			<h2><?php _e( 'Orders', 'wcvendors' ); ?></h2>
+			<h2><?php _e( 'Orders', $DC_Product_Vendor->text_domain ); ?></h2>
 
 			<form id="posts-filter" method="get">
 
@@ -330,7 +328,7 @@ if ( !class_exists( 'WP_List_Table' ) ) require_once ABSPATH . 'wp-admin/include
  * WCV Vendor Order Page 
  * 
  * @author dualcube
- * @package WCVendors 
+ * @package DCVendors 
  * @extends WP_List_Table
  */
 class DC_Vendor_Order_Page extends WP_List_Table {
@@ -416,16 +414,16 @@ class DC_Vendor_Order_Page extends WP_List_Table {
 	 * @access public
 	 * @return unknown
 	 */
-	function get_columns()
-	{
+	function get_columns()	{
+		global $DC_Product_Vendor;
 		$columns = array(
 			'cb'        => '<input type="checkbox" />',
-			'order_id'  => __( 'Order ID', 'wcvendors' ),
-			'customer'  => __( 'Customer', 'wcvendors' ),
-			'products'  => __( 'Products', 'wcvendors' ),
-			'total' 	=> __( 'Total', 'wcvendors' ),
-			'date'      => __( 'Date', 'wcvendors' ),
-			'status'    => __( 'Shipped', 'wcvendors' ),
+			'order_id'  => __( 'Order ID', $DC_Product_Vendor->text_domain ),
+			'customer'  => __( 'Customer', $DC_Product_Vendor->text_domain ),
+			'products'  => __( 'Products', $DC_Product_Vendor->text_domain ),
+			'total' 	=> __( 'Total', $DC_Product_Vendor->text_domain ),
+			'date'      => __( 'Date', $DC_Product_Vendor->text_domain ),
+			'status'    => __( 'Shipped', $DC_Product_Vendor->text_domain ),
 		);
 
 		return $columns;
@@ -455,10 +453,10 @@ class DC_Vendor_Order_Page extends WP_List_Table {
 	 *
 	 * @return unknown
 	 */
-	function get_bulk_actions()
-	{
+	function get_bulk_actions()	{
+		global $DC_Product_Vendor;
 		$actions = array(
-			'mark_shipped'     => __( 'Mark shipped', 'wcvendors' ),
+			'mark_shipped'     => __( 'Mark shipped', $DC_Product_Vendor->text_domain ),
 		);
 
 		return $actions;

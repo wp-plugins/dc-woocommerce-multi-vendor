@@ -40,9 +40,10 @@ class DC_Product_Vendor_User {
 	 * @return void
 	 */
   public function woocommerce_before_my_account() {
+  	global $DC_Product_Vendor;
   	$current_user = wp_get_current_user();
 		if(is_user_dc_pending_vendor($current_user)) {
-			echo 'Congratulation !! You have successfully applied for Vendor Role, Please wait untill Admin approval.';
+			_e('Congratulation !! You have successfully applied for Vendor Role, Please wait untill Admin approval.', $DC_Product_Vendor->text_domain);
 		}  
   }
   

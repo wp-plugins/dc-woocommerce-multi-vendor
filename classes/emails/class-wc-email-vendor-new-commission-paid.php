@@ -17,7 +17,7 @@ if ( ! class_exists( 'WC_Email_Vendor_Commissions_Paid' ) ) :
  * @author 		WooThemes
  * @extends 	WC_Email
  *
- * @property YITH_Commission $object
+ * @property DC_Commission $object
  */
 class WC_Email_Vendor_Commissions_Paid extends WC_Email {
 
@@ -103,31 +103,32 @@ class WC_Email_Vendor_Commissions_Paid extends WC_Email {
 	 * @return void
 	 */
 	function init_form_fields() {
+		global $DC_Product_Vendor;
 		$this->form_fields = array(
 			'enabled' => array(
-				'title' 		=> __( 'Enable/Disable', 'yith_wc_product_vendors' ),
+				'title' 		=> __( 'Enable/Disable', $DC_Product_Vendor->text_domain ),
 				'type' 			=> 'checkbox',
-				'label' 		=> __( 'Enable notification for this email', 'yith_wc_product_vendors' ),
+				'label' 		=> __( 'Enable notification for this email', $DC_Product_Vendor->text_domain ),
 				'default' 		=> 'yes'
 			),
 			'subject' => array(
-				'title' 		=> __( 'Subject', 'yith_wc_product_vendors' ),
+				'title' 		=> __( 'Subject', $DC_Product_Vendor->text_domain ),
 				'type' 			=> 'text',
-				'description' 	=> sprintf( __( 'This controls the email subject line. Leave it blank to use the default subject: <code>%s</code>.', 'yith_wc_product_vendors' ), $this->subject ),
+				'description' 	=> sprintf( __( 'This controls the email subject line. Leave it blank to use the default subject: <code>%s</code>.', $DC_Product_Vendor->text_domain ), $this->subject ),
 				'placeholder' 	=> '',
 				'default' 		=> ''
 			),
 			'heading' => array(
-				'title' 		=> __( 'Email Heading', 'yith_wc_product_vendors' ),
+				'title' 		=> __( 'Email Heading', $DC_Product_Vendor->text_domain ),
 				'type' 			=> 'text',
-				'description' 	=> sprintf( __( 'This controls the main heading contained in the email notification. Leave it blank to use the default heading: <code>%s</code>.', 'yith_wc_product_vendors' ), $this->heading ),
+				'description' 	=> sprintf( __( 'This controls the main heading contained in the email notification. Leave it blank to use the default heading: <code>%s</code>.', $DC_Product_Vendor->text_domain ), $this->heading ),
 				'placeholder' 	=> '',
 				'default' 		=> ''
 			),
 			'email_type' => array(
-				'title' 		=> __( 'Email type', 'yith_wc_product_vendors' ),
+				'title' 		=> __( 'Email type', $DC_Product_Vendor->text_domain ),
 				'type' 			=> 'select',
-				'description' 	=> __( 'Choose format for the email that will be sent.', 'yith_wc_product_vendors' ),
+				'description' 	=> __( 'Choose format for the email that will be sent.', $DC_Product_Vendor->text_domain ),
 				'default' 		=> 'html',
 				'class'			=> 'email_type wc-enhanced-select',
 				'options'		=> $this->get_email_type_options()

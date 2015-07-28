@@ -122,8 +122,10 @@ class DC_Product_Vendor_Product {
 	* Add Vendor tab in single product page 
 	* @return void
 	*/
-	function add_vendor_tab() { ?>
-		<li class="vendor_icon vendor_icons"><a href="#choose_vendor"><?php _e( 'Choose Vendor', 'woocommerce' ); ?></a></li>
+	function add_vendor_tab() { 
+		global $DC_Product_Vendor;
+		?>
+		<li class="vendor_icon vendor_icons"><a href="#choose_vendor"><?php _e( 'Choose Vendor', $DC_Product_Vendor->text_domain ); ?></a></li>
 	<?php }
 	
 	/**
@@ -198,13 +200,13 @@ class DC_Product_Vendor_Product {
 	* @return void
 	*/
 	public function add_variation_settings( $loop, $variation_data, $variation ) {
-		
+		global $DC_Product_Vendor;
 		$commission = get_post_meta($variation->ID, '_product_vendors_commission', true );
 		
 		$html = '<tr>
 								<td>
 									<div class="_product_vendors_commission">
-										<label for="_product_vendors_commission_' . $loop . '">' . __( 'Commission (%) ', 'wc_product_vendors' ) . ':</label>
+										<label for="_product_vendors_commission_' . $loop . '">' . __( 'Commission (%) ', $DC_Product_Vendor->text_domain ) . ':</label>
 										<input size="4" type="text" name="variable_product_vendors_commission[' . $loop . ']" id="_product_vendors_commission_' . $loop . '" value="' . $commission . '" />
 									</div>
 								</td>
@@ -222,9 +224,9 @@ class DC_Product_Vendor_Product {
 		$vendors = get_dc_product_vendors( $product->id );
 		if( $vendors ) {
 			if( count( $vendors ) > 1 ) {
-					$title = __( 'Vendors', $DC_Product_Vendor->token );
+					$title = __( 'Vendors', $DC_Product_Vendor->text_domain );
 			} else {
-					$title = __( 'Vendor', $DC_Product_Vendor->token );
+					$title = __( 'Vendor', $DC_Product_Vendor->text_domain );
 			}
 			$tabs['vendor'] = array(
 					'title' => $title,

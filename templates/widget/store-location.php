@@ -9,14 +9,14 @@
  * @version     0.0.1
  */
 extract( $instance );
-
+global $DC_Product_Vendor;
 ?>
 
 <div class="clearfix widget store-location">
     <h3 class="widget-title"><?php echo $title ?></h3>
-    <div class="yith-wpv-store-location-wrapper">
+    <div class="dc-wpv-store-location-wrapper">
         <div id="store-maps" class="gmap3" style="height: 300px;"></div>
-        <a href="<?php echo $gmaps_link ?>" target="_blank"><?php _e( 'Show in Google Maps', 'yith_wc_product_vendors' ) ?></a>
+        <a href="<?php echo $gmaps_link ?>" target="_blank"><?php _e( 'Show in Google Maps', $DC_Product_Vendor->text_domain ) ?></a>
     </div>
 </div>
 
