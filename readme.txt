@@ -15,7 +15,7 @@ The DC WooCommerce Multi Vendor Plugin is an extension of WooCommerce that allow
 
 = Inspiration =
 
-The DC WooCommerce Multivendor plugin was inspired by the features of the followig plugins:
+The DC WooCommerce Multivendor plugin was inspired by the features of the following plugins:
 
 * [WC Vendors](https://wordpress.org/plugins/wc-vendors/)
 * [YITH WooCommerce Multi Vendor](https://wordpress.org/plugins/yith-woocommerce-product-vendors/)
