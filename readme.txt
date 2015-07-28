@@ -13,6 +13,19 @@ A Free Extension That Transforms Your WooCommerce Site into a Marketplace.
 == Description ==
 The DC WooCommerce Multi Vendor Plugin is an extension of WooCommerce that allows you to transform your Wordpress-WooCommerce site into a marketplace, something like Etsy.  This plugin has the longest list of features, and comes with free support that beats paid ones.
 
+= Inspiration =
+
+The DC WooCommerce Multivendor plugin was inspired by the features of the followig plugins:
+
+* [WC Vendors](https://wordpress.org/plugins/wc-vendors/)
+* [YITH WooCommerce Multi Vendor](https://wordpress.org/plugins/yith-woocommerce-product-vendors/)
+* [Dokan](https://wedevs.com/products/plugins/dokan/)
+
+= Important links =
+
+Request a new feature here: [Link](http://ideas.dualcube.com/)
+Future roadmap: [Link](https://dualcube.com/dc-woocommerce-multi-vendor-future-development-roadmap/)
+
 = Features =
 
 * Users can register as vendor, and admin approve / disapprove vendors' registration.
