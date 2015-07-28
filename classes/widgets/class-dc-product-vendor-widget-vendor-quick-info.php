@@ -151,7 +151,7 @@ if ( ! class_exists( 'DC_Widget_Quick_Info_Widget' ) ) {
          * @param array $old_instance Old settings for this instance.
          *
          * @return array Settings to save or bool false to cancel saving.
-         * @author Andrea Grillo <andrea.grillo@yithemes.com>
+         * @author dualcube
          * @see    WP_Widget::form()
          */
         public function update( $new_instance, $old_instance ) {
@@ -168,7 +168,7 @@ if ( ! class_exists( 'DC_Widget_Quick_Info_Widget' ) ) {
          *
          * @since 1.0
          * @return void
-         * @author Andrea Grillo <andrea.grillo@yithemes.com>
+         * @author dualcube
          */
         public function send_mail() {
             if ( $this->check_form() ) {
@@ -200,7 +200,7 @@ if ( ! class_exists( 'DC_Widget_Quick_Info_Widget' ) ) {
          *
          * @since  1.0
          * @return void
-         * @author Andrea Grillo <andrea.grillo@yithemes.com>
+         * @author dualcube
          * @return bool
          */
         public function check_form(){

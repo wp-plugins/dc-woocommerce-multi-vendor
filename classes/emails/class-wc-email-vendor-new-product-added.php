@@ -126,44 +126,45 @@ class WC_Email_Vendor_New_Product_Added extends WC_Email {
 	 */
 	function init_form_fields()
 	{
+		global $DC_Product_Vendor;
 		$this->form_fields = array(
 			'enabled'    => array(
-				'title'   => __( 'Enable/Disable', 'wcvendors' ),
+				'title'   => __( 'Enable/Disable', $DC_Product_Vendor->text_domain ),
 				'type'    => 'checkbox',
-				'label'   => __( 'Enable this email notification', 'wcvendors' ),
+				'label'   => __( 'Enable this email notification', $DC_Product_Vendor->text_domain ),
 				'default' => 'yes'
 			),
 			'recipient'  => array(
-				'title'       => __( 'Recipient(s)', 'woocommerce' ),
+				'title'       => __( 'Recipient(s)', $DC_Product_Vendor->text_domain ),
 				'type'        => 'text',
-				'description' => sprintf( __( 'Enter recipients (comma separated) for this email. Defaults to <code>%s</code>.', 'woocommerce' ), esc_attr( get_option( 'admin_email' ) ) ),
+				'description' => sprintf( __( 'Enter recipients (comma separated) for this email. Defaults to <code>%s</code>.', $DC_Product_Vendor->text_domain ), esc_attr( get_option( 'admin_email' ) ) ),
 				'placeholder' => '',
 				'default'     => ''
 			),
 			'subject'    => array(
-				'title'       => __( 'Subject', 'wcvendors' ),
+				'title'       => __( 'Subject', $DC_Product_Vendor->text_domain ),
 				'type'        => 'text',
-				'description' => sprintf( __( 'This controls the email subject line. Leave blank to use the default subject: <code>%s</code>.', 'wcvendors' ), $this->subject ),
+				'description' => sprintf( __( 'This controls the email subject line. Leave blank to use the default subject: <code>%s</code>.', $DC_Product_Vendor->text_domain ), $this->subject ),
 				'placeholder' => '',
 				'default'     => ''
 			),
 			'heading'    => array(
-				'title'       => __( 'Email Heading', 'wcvendors' ),
+				'title'       => __( 'Email Heading', $DC_Product_Vendor->text_domain ),
 				'type'        => 'text',
-				'description' => sprintf( __( 'This controls the main heading contained within the email notification. Leave blank to use the default heading: <code>%s</code>.', 'wcvendors' ), $this->heading ),
+				'description' => sprintf( __( 'This controls the main heading contained within the email notification. Leave blank to use the default heading: <code>%s</code>.', $DC_Product_Vendor->text_domain ), $this->heading ),
 				'placeholder' => '',
 				'default'     => ''
 			),
 			'email_type' => array(
-				'title'       => __( 'Email type', 'wcvendors' ),
+				'title'       => __( 'Email type', $DC_Product_Vendor->text_domain ),
 				'type'        => 'select',
-				'description' => __( 'Choose which format of email to send.', 'wcvendors' ),
+				'description' => __( 'Choose which format of email to send.', $DC_Product_Vendor->text_domain ),
 				'default'     => 'html',
 				'class'       => 'email_type',
 				'options'     => array(
-					'plain'     => __( 'Plain text', 'wcvendors' ),
-					'html'      => __( 'HTML', 'wcvendors' ),
-					'multipart' => __( 'Multipart', 'wcvendors' ),
+					'plain'     => __( 'Plain text', $DC_Product_Vendor->text_domain ),
+					'html'      => __( 'HTML', $DC_Product_Vendor->text_domain ),
+					'multipart' => __( 'Multipart', $DC_Product_Vendor->text_domain ),
 				)
 			)
 		);

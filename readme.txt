@@ -31,13 +31,13 @@ The DC WooCommerce Multi Vendor Plugin is an extension of WooCommerce that allow
 = Shortcodes =
 
 * [dc_vendorslist] : List of vendors in your site.
-* [dc_recent_products vendor="<VENDOR LOGIN NAME>"] : Recent Products of the vendor.
-* [dc_products vendor="<VENDOR LOGIN NAME>"] : Products of the vendor.
-* [dc_featured_products vendor="<VENDOR LOGIN NAME>"] : Featured products of the vendor.
-* [dc_sale_products vendor="<VENDOR LOGIN NAME>"] : Only products of the vendor, in sale.
-* [dc_top_rated_products vendor="<VENDOR LOGIN NAME>"] : Top rated products of the vendor.
-* [dc_best_selling_products vendor="<VENDOR LOGIN NAME>"] : Best selling products of the vendor.
-* [dc_product_category category="<category-slug>" vendor="<VENDOR LOGIN NAME>"] : All products of the category by the particular vendor, if vendor is specified, otherwise, all products of the category irrespective of vendor.
+* [dc_recent_products vendor="VENDOR LOGIN NAME"] : Recent Products of the vendor.
+* [dc_products vendor="VENDOR LOGIN NAME"] : Products of the vendor.
+* [dc_featured_products vendor="VENDOR LOGIN NAME"] : Featured products of the vendor.
+* [dc_sale_products vendor="VENDOR LOGIN NAME"] : Only products of the vendor, in sale.
+* [dc_top_rated_products vendor="VENDOR LOGIN NAME"] : Top rated products of the vendor.
+* [dc_best_selling_products vendor="VENDOR LOGIN NAME"] : Best selling products of the vendor.
+* [dc_product_category category="category-slug" vendor="VENDOR LOGIN NAME"] : All products of the category by the particular vendor, if vendor is specified, otherwise, all products of the category irrespective of vendor.
 
 Click to see Live Demo of [Shortcodes](http://demo.dualcube.com/wordpress/plugins/dc_woocommerce_multi_vendor/shortcode_page/ "Link for Shortcodes")
 

@@ -39,7 +39,7 @@ if ( $totals = $order->get_order_item_totals() ) {
 echo "\n****************************************************\n\n";
 
 do_action( 'woocommerce_email_after_order_table', $order, $sent_to_admin, $plain_text );
-echo __( 'Customer details', 'woocommerce' ) . "\n";
+echo __( 'Customer details', $DC_Product_Vendor->text_domain ) . "\n";
 
 if ( $order->billing_email )
 	echo __( 'Email:',  $DC_Product_Vendor->text_domain ); echo $order->billing_email . "\n";

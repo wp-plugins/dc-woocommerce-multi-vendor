@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 global  $DC_Product_Vendor;
 do_action( 'woocommerce_email_header', $email_heading ); ?>
 
-<p><?php printf( __( 'An Order has received and marked as completed from %s. Their order is as follows:', ' $DC_Product_Vendor->text_domain' ), $order->billing_first_name . ' ' . $order->billing_last_name ); ?></p>
+<p><?php printf( __( 'An Order has received and marked as completed from %s. Their order is as follows:', $DC_Product_Vendor->text_domain ), $order->billing_first_name . ' ' . $order->billing_last_name ); ?></p>
 
 <?php do_action( 'woocommerce_email_before_order_table', $order, true, false ); ?>
 <table cellspacing="0" cellpadding="6" style="width: 100%; border: 1px solid #eee;" border="1" bordercolor="#eee">
