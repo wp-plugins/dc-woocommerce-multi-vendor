@@ -23,8 +23,8 @@ The DC WooCommerce Multivendor plugin was inspired by the features of the follow
 
 = Important links =
 
-Request a new feature here: [Link](http://ideas.dualcube.com/)
-Future roadmap: [Link](https://dualcube.com/dc-woocommerce-multi-vendor-future-development-roadmap/)
+* Request a new feature here: [Link](http://ideas.dualcube.com/)
+* Future roadmap: [Link](https://dualcube.com/dc-woocommerce-multi-vendor-future-development-roadmap/)
 
 = Features =
 
