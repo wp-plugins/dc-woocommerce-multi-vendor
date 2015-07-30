@@ -52,7 +52,7 @@ The DC WooCommerce Multivendor plugin was inspired by the features of the follow
 * [dc_top_rated_products vendor="VENDOR LOGIN NAME"] : Top rated products of the vendor.
 * [dc_best_selling_products vendor="VENDOR LOGIN NAME"] : Best selling products of the vendor.
 * [dc_product_category category="category-slug" vendor="VENDOR LOGIN NAME"] : All products of the category by the particular vendor, if vendor is specified, otherwise, all products of the category irrespective of vendor.
-* [vendor_coupon] : Shows vendor's coupon and the usage counted. Also added coupon information in vendor order details page.
+* [vendor_coupons] : Shows vendor's coupon and the usage counted. Also added coupon information in vendor order details page.
 
 Click to see Live Demo of [Shortcodes](http://demo.dualcube.com/wordpress/plugins/dc_woocommerce_multi_vendor/shortcode_page/ "Link for Shortcodes")
 
@@ -115,7 +115,7 @@ Ans. This plugin is tested with php version 5.5.
 
 == Changelog ==
 = 1.0.2 =
-* New Shortcode is added  as [vendor_coupon] to show vendor's coupon and the usage counted. Also added coupon information in vendor order details page.
+* New Shortcode is added  as [vendor_coupons] to show vendor's coupon and the usage counted. Also added coupon information in vendor order details page.
 * Admin can edit vendor shop page url base from wordpress permalink settings page.
 
 = 1.0.1 =
@@ -126,7 +126,7 @@ Ans. This plugin is tested with php version 5.5.
 
 == Upgrade Notice ==
 = 1.0.2 =
-* New Shortcode is added  as [vendor_coupon] to show vendor's coupon and the usage counted. Also added coupon information in vendor order details page.
+* New Shortcode is added  as [vendor_coupons] to show vendor's coupon and the usage counted. Also added coupon information in vendor order details page.
 * Admin can edit vendor shop page url base from wordpress permalink settings page.
 
 = 1.0.1 =
