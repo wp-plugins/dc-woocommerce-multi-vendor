@@ -4,7 +4,7 @@ Tags: WooCommerce vedors, WooCommerce, Vendor, Multivendor, marketplace, seller,
 Donate link: https://dualcube.com/
 Requires at least: 3.8.1
 Tested up to: 4.2.3
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -40,6 +40,7 @@ The DC WooCommerce Multivendor plugin was inspired by the features of the follow
 * Admin can view sales report overview / for a particular product / vendor.
 * Customers can report abuse products.
 * Provides useful widgets like google map store locater, available vendors' list, vendors' description and quick info.
+* Admin can edit vendor shop page url base from wordpress permalink settings page. If the url is like - mysite.com/vendor/vendor-name/, admin can change the word "vendor" as per their requirement.
 
 = Shortcodes =
 
@@ -51,6 +52,7 @@ The DC WooCommerce Multivendor plugin was inspired by the features of the follow
 * [dc_top_rated_products vendor="VENDOR LOGIN NAME"] : Top rated products of the vendor.
 * [dc_best_selling_products vendor="VENDOR LOGIN NAME"] : Best selling products of the vendor.
 * [dc_product_category category="category-slug" vendor="VENDOR LOGIN NAME"] : All products of the category by the particular vendor, if vendor is specified, otherwise, all products of the category irrespective of vendor.
+* [vendor_coupon] : Shows vendor's coupon and the usage counted. Also added coupon information in vendor order details page.
 
 Click to see Live Demo of [Shortcodes](http://demo.dualcube.com/wordpress/plugins/dc_woocommerce_multi_vendor/shortcode_page/ "Link for Shortcodes")
 
@@ -112,6 +114,10 @@ Ans. This plugin is tested with php version 5.5.
 17. Customers can report abuse products.
 
 == Changelog ==
+= 1.0.2 =
+* New Shortcode is added  as [vendor_coupon] to show vendor's coupon and the usage counted. Also added coupon information in vendor order details page.
+* Admin can edit vendor shop page url base from wordpress permalink settings page.
+
 = 1.0.1 =
 * Provided "Powerful Shortcodes" with more editable vendor shop page.
 
@@ -119,6 +125,10 @@ Ans. This plugin is tested with php version 5.5.
 * Initial version release.
 
 == Upgrade Notice ==
+= 1.0.2 =
+* New Shortcode is added  as [vendor_coupon] to show vendor's coupon and the usage counted. Also added coupon information in vendor order details page.
+* Admin can edit vendor shop page url base from wordpress permalink settings page.
+
 = 1.0.1 =
 * Provided "Powerful Shortcodes" with more editable vendor shop page.
 

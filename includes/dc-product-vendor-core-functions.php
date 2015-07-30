@@ -328,4 +328,46 @@ if( ! function_exists( 'is_vendor_order_by_product_page' ) ) {
 		return ( is_page( absint ( $pages['view_order'] ) )  ); 
 	}    
 }
+
+
+if( ! function_exists( 'get_vendor_coupon_amount' ) ) {
+	/**
+		* get vendor coupon from order.
+		* @return boolean
+	*/
+	function get_vendor_coupon_amount($item_product_id, $order_id, $vendor) {
+		$order = new WC_Order ($order_id);
+		$coupons = $order->get_used_coupons();
+		$coupon_used = array();
+		if(!empty($coupons)) {
+			foreach($coupons as $coupon_code) {
+				$coupon = new WC_Coupon( $coupon_code );
+				$coupon_post = get_post($coupon->id);
+				$author_id = $coupon_post->post_author;
+				if(get_current_user_id() != $author_id) {
+					continue;
+				} else {
+					$coupon_product_ids = $coupon->product_ids;
+					if(!in_array($item_product_id, $coupon_product_ids)) {
+						continue;
+					} else {
+						$coupon_used[] = $coupon_code;
+					}
+				}
+			}
+			if(!empty($coupon_used)) {
+				$return_coupon = ' ,   Copoun Used : ';
+				$no_of_coupon_use = false;
+				foreach($coupon_used as $coupon_use) {
+					if(!$no_of_coupon_use)	$return_coupon .= '"'. $coupon_use . '"';
+					else $return_coupon .= ', "' . $coupon_use .'"';
+					$no_of_coupon_use = true;
+				}
+				return $return_coupon;
+			} else {
+				return null;
+			}
+		}
+	}
+}
 ?>

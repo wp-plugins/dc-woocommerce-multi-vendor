@@ -11,8 +11,60 @@ class DC_Product_Vendor_Admin {
 		add_action('admin_bar_menu', array(&$this, 'add_toolbar_items_dc'), 100);
 		add_action('admin_head', array( &$this, 'admin_header' ) );
 		
+		add_action( 'current_screen', array( $this, 'conditonal_includes' ) );
+		
 		$this->load_class('settings');
 		$this->settings = new DC_Product_Vendor_Settings();
+	}
+	
+	function conditonal_includes() {
+		$screen = get_current_screen();
+		
+		if (in_array( $screen->id, array( 'options-permalink' ))) {
+			$this->permalink_settings_init();
+			$this->permalink_settings_save();
+		}
+	}
+	
+	function permalink_settings_init() {
+		global $DC_Product_Vendor;
+		// Add our settings
+		add_settings_field(
+			'dc_product_vendor_taxonomy_slug',            // id
+			__( 'Vendor Shop base', $DC_Product_Vendor->text_domain ),   // setting title
+			array( &$this, 'dc_product_vendor_taxonomy_slug_input' ),  // display callback
+			'permalink',                                    // settings page
+			'optional'                                      // settings section
+		);
+	}
+	
+	function dc_product_vendor_taxonomy_slug_input() {
+		global $DC_Product_Vendor;
+		$permalinks = get_option( 'dc_vendors_permalinks' );
+		?>
+		<input name="dc_product_vendor_taxonomy_slug" type="text" class="regular-text code" value="<?php if ( isset( $permalinks['vendor_shop_base'] ) ) echo esc_attr( $permalinks['vendor_shop_base'] ); ?>" placeholder="<?php echo _x('vendor', 'slug', $DC_Product_Vendor->text_domain) ?>" />
+		<?php
+	}
+	
+	function permalink_settings_save() {
+		if ( ! is_admin() ) {
+			return;
+		}
+		// We need to save the options ourselves; settings api does not trigger save for the permalinks page
+		if ( isset( $_POST['permalink_structure'] ) || isset( $_POST['dc_product_vendor_taxonomy_slug'] ) ) {
+			
+			// Cat and tag bases
+			$dc_product_vendor_taxonomy_slug  = wc_clean( $_POST['dc_product_vendor_taxonomy_slug'] );
+			$permalinks = get_option( 'dc_vendors_permalinks' );
+
+			if ( ! $permalinks ) {
+				$permalinks = array();
+			}
+
+			$permalinks['vendor_shop_base']    = untrailingslashit( $dc_product_vendor_taxonomy_slug );
+			update_option( 'dc_vendors_permalinks', $permalinks );
+			
+		}
 	}
 
 	/**

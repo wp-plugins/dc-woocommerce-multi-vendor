@@ -16,14 +16,8 @@ if( is_user_logged_in()  && is_user_dc_vendor($user->ID) )	{
 	$DC_Product_Vendor_Plugin_Post_Reports = new DC_Product_Vendor_Plugin_Post_Reports();
 	$vendor_sales_report = $DC_Product_Vendor_Plugin_Post_Reports->vendor_total_earnings_report();
 	$vendor_month_earnings = $DC_Product_Vendor_Plugin_Post_Reports->vendor_month_earnings(); ?>
+	<h3><?php _e('SALES REPORT', $DC_Product_Vendor->text_domain) ?></h3>
 	<div class="vendor_dashboard_shortcode">
-		<table class="vendor_dash">
-			<tbody>
-				<tr>
-					<th style="width: 30%;"><h3><?php _e('SALES REPORT', $DC_Product_Vendor->text_domain) ?></h3></th>
-				</tr>
-			</tbody>
-		</table>
 		<div class="vendor_month_report">
 			<?php echo $vendor_month_earnings; ?>
 		</div>

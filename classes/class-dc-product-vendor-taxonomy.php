@@ -13,12 +13,14 @@ class DC_Product_Vendor_Taxonomy {
 	
 	public $taxonomy_slug;
   
-  public function __construct() {
-  	$this->taxonomy_name = 'dc_vendor_shop';
-		$this->taxonomy_slug = 'vendor';
-    $this->register_post_taxonomy();
-    add_action('created_term', array( $this, 'created_term' ), 10, 3);
-  }
+	public function __construct() {
+		global $DC_Product_Vendor;
+		$permalinks = get_option( 'dc_vendors_permalinks' );
+		$this->taxonomy_name = 'dc_vendor_shop';
+		$this->taxonomy_slug = empty( $permalinks['vendor_shop_base'] ) ? _x( 'vendor', 'slug', $DC_Product_Vendor->text_domain ) : $permalinks['vendor_shop_base'];
+		$this->register_post_taxonomy();
+		add_action('created_term', array( $this, 'created_term' ), 10, 3);
+	}
   
   /**
   * function register_post_taxonomy

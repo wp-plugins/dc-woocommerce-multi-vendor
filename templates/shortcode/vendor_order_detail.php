@@ -68,6 +68,33 @@ if( $vendor && $order_id ) {
 					</tr>
 				</tbody>
 			</table>
+			<?php
+			$coupons = $order->get_used_coupons();
+			if(!empty($coupons)) {
+				?>
+				<h2><?php _e( 'Coupon Used :', $DC_Product_Vendor->text_domain ); ?></h2>
+				<table class="coupon_used"> 
+					<tbody>
+					  <tr>
+							<?php
+							$coupon_used = false;
+							foreach($coupons as $coupon_code) {
+								$coupon = new WC_Coupon( $coupon_code );
+								$coupon_post = get_post($coupon->id);
+								$author_id = $coupon_post->post_author;
+								if(get_current_user_id() == $author_id) {
+									$coupon_used = true;
+									echo '<td>"'.$coupon_code.'"</td>';
+								}
+							}
+							if(!$coupon_used) echo '<td>Sorry No Coupons of yours is used.</td>'
+							?>
+						</tr>
+					</tbody>
+				</table>
+			<?php
+			}
+			?>
 			<?php $customer_note = $order->customer_note;
 				?>
 				<h2><?php _e( 'Customer Note', $DC_Product_Vendor->text_domain ); ?></h2>

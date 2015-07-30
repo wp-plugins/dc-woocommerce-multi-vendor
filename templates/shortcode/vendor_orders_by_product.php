@@ -107,7 +107,10 @@ if($vendor && isset($_GET['orders_for_product']) && !empty($_GET['orders_for_pro
 											<?php } else { ?>
 											<td colspan="100%">
 												<?php } ?>
-												<?php printf( __( 'Quantity: %d', $DC_Product_Vendor->text_domain ), $item[ 'qty' ] ); ?>
+												<?php printf( __( 'Quantity: %d', $DC_Product_Vendor->text_domain ), $item[ 'qty' ] ); 
+												$coupon_used = get_vendor_coupon_amount($item['product_id'], $order_id, $vendor);
+												if($coupon_used) echo $coupon_used;
+												?>
 											</td>
 											<?php if ($count > 1) { ?>
 								</tr>

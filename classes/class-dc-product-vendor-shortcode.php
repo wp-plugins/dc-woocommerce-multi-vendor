@@ -24,6 +24,10 @@ class DC_Product_Vendor_Shortcode {
 		add_shortcode('vendor_order_detail', array(&$this, 'vendor_order_detail_shortcode'));
 		//vendor_orders_by_product
 		add_shortcode('vendor_orders_by_product', array(&$this, 'vendor_orders_by_product_shortcode'));
+		
+		//vendor_coupons
+		add_shortcode('vendor_coupons', array(&$this, 'vendor_coupons_shortcode'));
+		
 		// Recent Products 
 		add_shortcode( 'dc_recent_products', array(&$this, 'recent_products'));
 		// Products by vendor
@@ -107,6 +111,19 @@ class DC_Product_Vendor_Shortcode {
 		$this->load_class('vendor-view-order-dtl');
 		return $this->shortcode_wrapper(array('WC_Vendor_Order_Detail_Shortcode', 'output'));
 	}
+	
+	/**
+	 * vendor orer detail
+	 *
+	 * @return void
+	 */
+	public function vendor_coupons_shortcode($attr) {
+		global $DC_Product_Vendor;
+		$this->load_class('vendor-used-coupon');
+		return $this->shortcode_wrapper(array('WC_Vendor_Coupon_Shortcode', 'output'));
+	}
+	
+	
 	
 	/**
 	 * Helper Functions
