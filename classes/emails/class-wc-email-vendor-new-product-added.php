@@ -69,6 +69,16 @@ class WC_Email_Vendor_New_Product_Added extends WC_Email {
 
 		$this->post_id = $post->ID;
 		
+		$post_type = get_post_type($this->post_id);
+		$this->post_type = $post_type; 
+		if($post_type == 'shop_coupon') {
+			$this->title       = __( 'New Vendor Coupon', $DC_Product_Vendor->text_domain );
+			$this->description = __( 'New order emails are sent when a new coupon is submitted by a vendor', $DC_Product_Vendor->text_domain );
+
+			$this->heading = __( 'New coupon submitted: {product_name}', $DC_Product_Vendor->text_domain );
+			$this->subject = __( '[{blogname}] New coupon submitted by {vendor_name} - {product_name}', $DC_Product_Vendor->text_domain );
+		}
+		
 		// Other settings
 		$this->recipient = $this->get_option( 'recipient' );
 
@@ -91,6 +101,7 @@ class WC_Email_Vendor_New_Product_Added extends WC_Email {
 															 'product_name'  => $this->product_name,
 															 'vendor_name'   => $this->vendor_name,
 															 'post_id'       => $this->post_id,
+															 'post_type'     => $this->post_type,
 															 'email_heading' => $this->get_heading()
 														), 'woocommerce/', $this->template_base );
 
@@ -111,6 +122,7 @@ class WC_Email_Vendor_New_Product_Added extends WC_Email {
 															  'product_name'  => $this->product_name,
 															  'vendor_name'   => $this->vendor_name,
 															  'post_id'       => $this->post_id,
+															  'post_type'     => $this->post_type,
 															  'email_heading' => $this->get_heading()
 														 ), 'woocommerce/', $this->template_base );
 

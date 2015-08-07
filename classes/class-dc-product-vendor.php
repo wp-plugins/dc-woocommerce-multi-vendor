@@ -40,7 +40,7 @@ final class DC_Product_Vendor {
 	public $vendor_caps;
 	
 	public $vendor_dashboard;
-
+	
 	public function __construct( $file ) {
 
 		$this->file = $file;
@@ -59,6 +59,10 @@ final class DC_Product_Vendor {
 	*/
 	function init() {
 		
+		
+		// calculate commission
+		$this->load_class( 'calculate-commission' );
+		new DC_Product_Vendor_Calculate_Commission();
 		
 		// Init Text Domain
 		$this->load_plugin_textdomain();

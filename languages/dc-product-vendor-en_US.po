@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Woocommerce Product Vendor\n"
-"POT-Creation-Date: 2015-07-22 19:03+0530\n"
-"PO-Revision-Date: 2015-07-22 19:03+0530\n"
+"POT-Creation-Date: 2015-08-06 16:15+0530\n"
+"PO-Revision-Date: 2015-08-06 16:15+0530\n"
 "Last-Translator: Dualcube <admin@dualcube.com>\n"
 "Language-Team: Dualcube <admin@dualcube.com>\n"
 "Language: en_US\n"
@@ -58,81 +58,104 @@ msgstr ""
 msgid "Submit Coupons"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-capabilities.php:36
+#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-capabilities.php:34
+msgid "Give Taxes per product"
+msgstr ""
+
+#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-capabilities.php:34
+msgid "Give vendors any tax collected per-product"
+msgstr ""
+
+#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-capabilities.php:35
+msgid "Give Shipping per product"
+msgstr ""
+
+#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-capabilities.php:35
+msgid ""
+"Currently we have support on woocoomerce defalut shipping methods like local "
+"delivery and international delivery and make fee type as per product or per "
+"item."
+msgstr ""
+
+#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-capabilities.php:35
+msgid " Give vendors any shipping collected per-product "
+msgstr ""
+
+#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-capabilities.php:38
 msgid "Order export -"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-capabilities.php:38
+#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-capabilities.php:40
 msgid "Allow export order"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-capabilities.php:38
+#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-capabilities.php:40
 msgid "Give permission to export Orders"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-capabilities.php:39
+#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-capabilities.php:41
 msgid "Show customer email in export data"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-capabilities.php:39
+#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-capabilities.php:41
 msgid "Show customer email in exported Data"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-capabilities.php:42
+#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-capabilities.php:44
 msgid "Order note -"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-capabilities.php:44
+#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-capabilities.php:46
 msgid "View comment"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-capabilities.php:44
+#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-capabilities.php:46
 msgid "Vendor can see order notes"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-capabilities.php:45
+#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-capabilities.php:47
 msgid "Submit Comment"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-capabilities.php:45
+#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-capabilities.php:47
 msgid "Vendor can add order notes"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-capabilities.php:48
+#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-capabilities.php:50
 msgid "Vendor Order Email Settings -"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-capabilities.php:50
+#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-capabilities.php:52
 msgid "Show customer name, phone no. and email in mail"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-capabilities.php:51
-#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-capabilities.php:60
+#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-capabilities.php:53
+#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-capabilities.php:62
 msgid "Show customer billing address"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-capabilities.php:52
-#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-capabilities.php:61
+#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-capabilities.php:54
+#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-capabilities.php:63
 msgid "Show customer shipping address"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-capabilities.php:53
+#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-capabilities.php:55
 msgid "Show customer order calculations"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-capabilities.php:57
+#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-capabilities.php:59
 msgid "Frontend Vendor Order Details -"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-capabilities.php:59
+#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-capabilities.php:61
 msgid "Show cutomer detail"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-capabilities.php:167
+#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-capabilities.php:175
 msgid "Show/Hide Customer Details in order notification emails to vendors"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-capabilities.php:182
+#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-capabilities.php:190
 msgid "Show/Hide customer details in order view page of a vendor"
 msgstr ""
 
@@ -141,94 +164,104 @@ msgid "General Options -"
 msgstr ""
 
 #: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-general.php:29
-msgid "Default commission (%)"
+msgid "Default commission"
 msgstr ""
 
 #: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-general.php:29
 msgid ""
-"This will be the default commssion(in percentage) paid to vendors if product "
-"and vendor specific commission is not set. "
+"This will be the default commssion(in percentage or fixed) paid to vendors "
+"if product and vendor specific commission is not set. "
 msgstr ""
 
 #: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-general.php:30
+msgid "Commission Type"
+msgstr ""
+
+#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-general.php:30
+msgid ""
+"Choose your preferred type of commission type.It will effect all commisssion "
+"calculations."
+msgstr ""
+
+#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-general.php:31
 msgid "Include coupons in commission calculations"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-general.php:30
+#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-general.php:31
 msgid ""
 "Decide whether vendor commissions have to be calculated including coupon "
 "value or not."
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-general.php:31
+#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-general.php:32
 msgid "Allow user to become a vendor"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-general.php:31
+#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-general.php:32
 msgid ""
 "To enable registration option for a vendor, go to WooCommerce > Settings > "
 "Accounts and check the Enable registration on the My Account page."
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-general.php:32
+#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-general.php:33
 msgid "Approve vendors manually"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-general.php:32
+#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-general.php:33
 msgid ""
 "Checking this option will stop automatic registrations for vendors. The "
 "admin will have to manually approve each vendor registration application."
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-general.php:33
+#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-general.php:34
 msgid " Mention vendor name in product catalog pages"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-general.php:33
+#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-general.php:34
 msgid ""
 "Checking this box will add the text - Sold by [vendor name] in product "
 "catalog pages."
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-general.php:34
+#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-general.php:35
 msgid "Vendor Name label color"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-general.php:34
+#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-general.php:35
 msgid "Vendor Name label color in shop page and single product page"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-general.php:35
+#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-general.php:36
 msgid "Vendor Name label color(on hover)"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-general.php:35
+#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-general.php:36
 msgid "Vendor Name label color on hover in shop page and single product page"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-general.php:36
+#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-general.php:37
 msgid "Mention vendor name in cart, checkout page, and emails."
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-general.php:36
+#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-general.php:37
 msgid ""
 "Checking this box will add the text - Sold by [vendor name] in cart, "
 "checkout page and emails"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-general.php:37
+#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-general.php:38
 msgid "Alternative to the text -Sold By"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-general.php:37
+#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-general.php:38
 msgid "modify the default text"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-general.php:38
+#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-general.php:39
 msgid "Add Vendor Notify section"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-general.php:38
+#: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-general.php:39
 msgid ""
 "Add a section in the vendor dashboard to notify vendors if they have not "
 "configured their stores properly"
@@ -243,6 +276,8 @@ msgid "Inventory"
 msgstr ""
 
 #: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-product.php:31
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-vendor-dashboard.php:269
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-vendor-dashboard.php:326
 msgid "Shipping"
 msgstr ""
 
@@ -299,7 +334,7 @@ msgid "Taxes"
 msgstr ""
 
 #: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-product.php:54
-#: dc-woocommerce-multi-vendor/templates/shortcode/vendor_order_detail.php:104
+#: dc-woocommerce-multi-vendor/templates/shortcode/vendor_order_detail.php:131
 msgid "Add Comment"
 msgstr ""
 
@@ -355,7 +390,7 @@ msgid "General"
 msgstr ""
 
 #: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings.php:47
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-vendor-dashboard.php:425
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-vendor-dashboard.php:572
 msgid "Products"
 msgstr ""
 
@@ -391,7 +426,7 @@ msgid "<br>Now the time is %s"
 msgstr ""
 
 #: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-pages.php:36
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-admin.php:46
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-admin.php:98
 #: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-install.php:72
 msgid "Vendor Dashboard"
 msgstr ""
@@ -401,7 +436,7 @@ msgid "Choose your preferred page for vendor dashboard."
 msgstr ""
 
 #: dc-woocommerce-multi-vendor/admin/class-dc-product-vendor-settings-pages.php:37
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-admin.php:59
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-admin.php:111
 #: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-install.php:73
 msgid "Shop Settings"
 msgstr ""
@@ -588,17 +623,20 @@ msgstr ""
 #: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-post-reports.php:698
 #: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-post-commission.php:307
 #: dc-woocommerce-multi-vendor/templates/emails/vendor-notify-shipped.php:28
-#: dc-woocommerce-multi-vendor/templates/emails/vendor-new-order.php:22
+#: dc-woocommerce-multi-vendor/templates/emails/vendor-new-order.php:24
 #: dc-woocommerce-multi-vendor/templates/emails/vendor-commissions-paid.php:70
 #: dc-woocommerce-multi-vendor/templates/emails/plain/vendor-commissions-paid.php:58
 msgid "Product"
 msgstr ""
 
 #: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-post-reports.php:700
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-product.php:210
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:386
 #: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-post-commission.php:54
 #: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-post-commission.php:55
 #: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-post-commission.php:56
 #: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-post-commission.php:58
+#: dc-woocommerce-multi-vendor/templates/emails/vendor-new-order.php:26
 msgid "Commission"
 msgstr ""
 
@@ -607,7 +645,7 @@ msgid "Rate"
 msgstr ""
 
 #: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-post-reports.php:719
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-vendor-dashboard.php:426
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-vendor-dashboard.php:573
 #: dc-woocommerce-multi-vendor/templates/shortcode/vendor_orders.php:35
 msgid "Total"
 msgstr ""
@@ -622,100 +660,100 @@ msgstr ""
 msgid "Total commissions earned from %1$s as at %2$s on %3$s"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-calculate-commission.php:107
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-calculate-commission.php:117
 #, php-format
 msgid "Commission - %s"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor.php:316
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor.php:320
 msgid "Settings"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor.php:364
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor.php:368
 msgid "Every 7 days"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor.php:368
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor.php:372
 msgid "Every 1 month"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-taxonomy.php:32
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-taxonomy.php:34
 msgid "Product Vendors"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-taxonomy.php:33
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-admin.php:35
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-product.php:167
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:136
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-taxonomy.php:35
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-admin.php:87
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-product.php:230
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:138
 #: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-post-commission.php:308
 #: dc-woocommerce-multi-vendor/templates/emails/vendor-commissions-paid.php:60
 #: dc-woocommerce-multi-vendor/templates/emails/plain/vendor-commissions-paid.php:52
 msgid "Vendor"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-taxonomy.php:34
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-product.php:165
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-taxonomy.php:36
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-product.php:228
 msgid "Vendors"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-taxonomy.php:35
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-taxonomy.php:37
 msgid "Search Vendors"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-taxonomy.php:36
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-taxonomy.php:38
 msgid "All Vendors"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-taxonomy.php:37
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-taxonomy.php:39
 msgid "Parent Vendor"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-taxonomy.php:38
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-taxonomy.php:40
 msgid "Parent Vendor:"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-taxonomy.php:39
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:505
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-taxonomy.php:41
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:533
 msgid "View Vendor"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-taxonomy.php:40
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-taxonomy.php:42
 msgid "Edit Vendor"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-taxonomy.php:41
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-taxonomy.php:43
 msgid "Update Vendor"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-taxonomy.php:42
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-taxonomy.php:44
 msgid "Add New Vendor"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-taxonomy.php:43
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-taxonomy.php:45
 msgid "New Vendor Name"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-taxonomy.php:44
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-taxonomy.php:46
 msgid "Popular Vendors"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-taxonomy.php:45
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-taxonomy.php:47
 msgid "Separate vendors with commas"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-taxonomy.php:46
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-taxonomy.php:48
 msgid "Add or remove vendors"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-taxonomy.php:47
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-taxonomy.php:49
 msgid "Choose from most used vendors"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-taxonomy.php:48
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-taxonomy.php:50
 msgid "No vendors found"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-capabilities.php:262
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-capabilities.php:258
 msgid "Sold By"
 msgstr ""
 
@@ -744,72 +782,76 @@ msgstr ""
 msgid "Product page:: %s\n"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-admin.php:91
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-admin.php:34
+msgid "Vendor Shop base"
+msgstr ""
+
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-admin.php:143
 msgid "Powered by"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-admin.php:91
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-admin.php:143
 msgid "Dualcube"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-vendor-dashboard.php:46
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-vendor-dashboard.php:134
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-vendor-dashboard.php:52
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-vendor-dashboard.php:140
 #: dc-woocommerce-multi-vendor/templates/shortcode/vendor_orders_by_product.php:37
 #: dc-woocommerce-multi-vendor/templates/shortcode/vendor_orders.php:32
 msgid "Order"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-vendor-dashboard.php:47
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-vendor-dashboard.php:135
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-vendor-dashboard.php:53
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-vendor-dashboard.php:141
 #: dc-woocommerce-multi-vendor/templates/shortcode/vendor_orders_by_product.php:38
 #: dc-woocommerce-multi-vendor/templates/shortcode/vendor_order_detail.php:27
 msgid "Product Title"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-vendor-dashboard.php:48
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-vendor-dashboard.php:136
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-vendor-dashboard.php:54
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-vendor-dashboard.php:142
 #: dc-woocommerce-multi-vendor/templates/shortcode/vendor_orders_by_product.php:39
 msgid "Full name"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-vendor-dashboard.php:49
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-vendor-dashboard.php:137
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-vendor-dashboard.php:55
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-vendor-dashboard.php:143
 #: dc-woocommerce-multi-vendor/templates/shortcode/vendor_dashboard.php:51
 #: dc-woocommerce-multi-vendor/templates/shortcode/vendor_orders_by_product.php:40
 msgid "Address"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-vendor-dashboard.php:50
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-vendor-dashboard.php:138
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:270
-#: dc-woocommerce-multi-vendor/templates/shortcode/shop_settings.php:54
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-vendor-dashboard.php:56
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-vendor-dashboard.php:144
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:282
+#: dc-woocommerce-multi-vendor/templates/shortcode/shop_settings.php:59
 #: dc-woocommerce-multi-vendor/templates/shortcode/vendor_orders_by_product.php:41
 msgid "City"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-vendor-dashboard.php:51
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-vendor-dashboard.php:139
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:284
-#: dc-woocommerce-multi-vendor/templates/shortcode/shop_settings.php:64
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-vendor-dashboard.php:57
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-vendor-dashboard.php:145
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:296
+#: dc-woocommerce-multi-vendor/templates/shortcode/shop_settings.php:69
 #: dc-woocommerce-multi-vendor/templates/shortcode/vendor_orders_by_product.php:42
 msgid "State"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-vendor-dashboard.php:52
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-vendor-dashboard.php:140
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-vendor-dashboard.php:58
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-vendor-dashboard.php:146
 #: dc-woocommerce-multi-vendor/templates/shortcode/vendor_orders_by_product.php:43
 msgid "Zip"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-vendor-dashboard.php:53
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-vendor-dashboard.php:141
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-vendor-dashboard.php:59
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-vendor-dashboard.php:147
 #: dc-woocommerce-multi-vendor/templates/shortcode/vendor_orders_by_product.php:44
 msgid "Email address"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-vendor-dashboard.php:54
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-vendor-dashboard.php:142
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-vendor-dashboard.php:427
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-vendor-dashboard.php:60
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-vendor-dashboard.php:148
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-vendor-dashboard.php:574
 #: dc-woocommerce-multi-vendor/templates/shortcode/vendor_orders_by_product.php:45
 #: dc-woocommerce-multi-vendor/templates/shortcode/vendor_orders.php:33
 #: dc-woocommerce-multi-vendor/templates/emails/vendor-commissions-paid.php:45
@@ -817,229 +859,267 @@ msgstr ""
 msgid "Date"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-vendor-dashboard.php:55
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-vendor-dashboard.php:143
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-vendor-dashboard.php:61
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-vendor-dashboard.php:149
 msgid "Extra Data"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-vendor-dashboard.php:260
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-vendor-dashboard.php:312
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-vendor-dashboard.php:264
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-vendor-dashboard.php:403
 #: dc-woocommerce-multi-vendor/templates/shortcode/vendor_orders.php:22
 msgid "Orders"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-vendor-dashboard.php:423
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-vendor-dashboard.php:570
 #: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-post-commission.php:306
 msgid "Order ID"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-vendor-dashboard.php:424
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-vendor-dashboard.php:571
 msgid "Customer"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-vendor-dashboard.php:428
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-vendor-dashboard.php:575
 msgid "Shipped"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-vendor-dashboard.php:461
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-vendor-dashboard.php:608
 msgid "Mark shipped"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-vendor-dashboard.php:485
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-vendor-dashboard.php:632
 msgid "Orders marked shipped."
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-product.php:66
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-product.php:128
 msgid "Choose Vendor"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-product.php:147
-msgid "Commission (%) "
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:47
+msgid ""
+"Congratulation !! You have successfully applied for Vendor Role, Please wait "
+"untill Admin approval."
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:143
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:145
 msgid "Pending Vendor"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:149
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:151
 msgid "Rejected Vendor"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:229
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:231
 msgid "Vendor Page Title"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:231
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:233
 msgid "Vendor page title"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:236
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:238
 msgid "Vendor Page Slug"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:238
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:240
 msgid "Vendor page Slug"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:243
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:245
 #: dc-woocommerce-multi-vendor/templates/shortcode/shop_settings.php:34
 msgid "Biographical Info"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:249
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:252
+msgid "Hide description in frontend"
+msgstr ""
+
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:254
+msgid "Hide Description on Vendor Shop Page."
+msgstr ""
+
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:261
 msgid "Vendor Company"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:251
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:258
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:265
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:272
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:279
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:286
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:293
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:300
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:307
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:376
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:263
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:270
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:277
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:284
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:291
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:298
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:305
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:312
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:319
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:388
 msgid "Enter Default Commission"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:256
-#: dc-woocommerce-multi-vendor/templates/shortcode/shop_settings.php:44
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:268
+#: dc-woocommerce-multi-vendor/templates/shortcode/shop_settings.php:49
 msgid "Address 1"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:263
-#: dc-woocommerce-multi-vendor/templates/shortcode/shop_settings.php:49
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:275
+#: dc-woocommerce-multi-vendor/templates/shortcode/shop_settings.php:54
 msgid "Address 2"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:277
-#: dc-woocommerce-multi-vendor/templates/shortcode/shop_settings.php:59
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:289
+#: dc-woocommerce-multi-vendor/templates/shortcode/shop_settings.php:64
 msgid "Postcode"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:291
-#: dc-woocommerce-multi-vendor/templates/shortcode/shop_settings.php:69
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:303
+#: dc-woocommerce-multi-vendor/templates/shortcode/shop_settings.php:74
 msgid "Country"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:298
-#: dc-woocommerce-multi-vendor/templates/shortcode/shop_settings.php:74
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:310
+#: dc-woocommerce-multi-vendor/templates/shortcode/shop_settings.php:79
 msgid "Phone"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:305
-#: dc-woocommerce-multi-vendor/templates/shortcode/shop_settings.php:79
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:317
+#: dc-woocommerce-multi-vendor/templates/shortcode/shop_settings.php:84
 msgid "Paypal Email"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:312
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:324
 msgid "Facebook Profile Url"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:314
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:321
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:328
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:335
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:326
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:333
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:340
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:347
 msgid "Enter Your Profile Url"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:319
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:331
+#: dc-woocommerce-multi-vendor/templates/shortcode/shop_settings.php:94
 msgid "Twitter Profile Url"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:326
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:338
+#: dc-woocommerce-multi-vendor/templates/shortcode/shop_settings.php:99
 msgid "Google+ Profile Url"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:333
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:345
+#: dc-woocommerce-multi-vendor/templates/shortcode/shop_settings.php:104
 msgid "Linkdin Profile Url"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:340
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:352
+#: dc-woocommerce-multi-vendor/templates/shortcode/shop_settings.php:110
 msgid "Youtube Vedio Url"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:342
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:354
 msgid "Enter Vedio Url"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:347
-#: dc-woocommerce-multi-vendor/templates/shortcode/shop_settings.php:84
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:359
+#: dc-woocommerce-multi-vendor/templates/shortcode/shop_settings.php:115
 msgid "Logo"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:350
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:358
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:362
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:370
 msgid "Your presentation."
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:355
-#: dc-woocommerce-multi-vendor/templates/shortcode/shop_settings.php:94
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:367
+#: dc-woocommerce-multi-vendor/templates/shortcode/shop_settings.php:125
 msgid "Banner"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:366
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:378
 msgid "Submit Products"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:368
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:380
 msgid "Is Vendor can Submit Product."
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:374
-msgid "Commission (%)"
-msgstr ""
-
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:381
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:393
 msgid "Submit Coupon"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:383
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:395
 msgid "Is Vendor can Submit Coupon."
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:472
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:401
+msgid "Withdraw to give Tax"
+msgstr ""
+
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:403
+msgid "Is Vendor can Give Tax."
+msgstr ""
+
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:409
+msgid "Withdraw to give Shippng"
+msgstr ""
+
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:411
+msgid "Is Vendor can Give Shipping."
+msgstr ""
+
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:500
 #: dc-woocommerce-multi-vendor/templates/shortcode/vendor_orders.php:65
 msgid "View"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:478
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:484
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:506
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:512
 msgid "Activate"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:479
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:507
 msgid "Reject"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:522
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:529
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:574
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:550
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:557
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:602
 msgid "Slug already exists"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:568
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:596
 msgid "Title Update Error"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:622
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:652
 msgid "Select a vendor."
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:718
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:737
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:748
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-user.php:767
 msgid "Apply to become a vendor ?"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-details.php:461
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-details.php:444
 #, php-format
 msgid "Quantity: %s"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-details.php:464
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-details.php:450
 #, php-format
-msgid "Cost: %s"
+msgid "Commission: %s"
+msgstr ""
+
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-details.php:476
+msgid "Commission Subtotal:"
+msgstr ""
+
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-details.php:480
+msgid "Tax Subtotal:"
+msgstr ""
+
+#: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-details.php:485
+msgid "Shipping Subtotal:"
 msgstr ""
 
 #: dc-woocommerce-multi-vendor/classes/class-dc-product-vendor-install.php:74
@@ -1288,29 +1368,45 @@ msgstr ""
 msgid "[{blogname}] New product submitted by {vendor_name} - {product_name}"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-product-added.php:131
+#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-product-added.php:75
+msgid "New Vendor Coupon"
+msgstr ""
+
+#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-product-added.php:76
+msgid "New order emails are sent when a new coupon is submitted by a vendor"
+msgstr ""
+
+#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-product-added.php:78
+msgid "New coupon submitted: {product_name}"
+msgstr ""
+
+#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-product-added.php:79
+msgid "[{blogname}] New coupon submitted by {vendor_name} - {product_name}"
+msgstr ""
+
+#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-product-added.php:144
 #: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-notify-shipped.php:121
-#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-order.php:116
+#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-order.php:128
 #: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-admin-new-vendor-account.php:130
 #: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-admin-added-new-product-to-vendor.php:140
-#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-commission-paid.php:108
+#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-commission-paid.php:109
 msgid "Enable/Disable"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-product-added.php:133
+#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-product-added.php:146
 #: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-notify-shipped.php:123
-#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-order.php:118
+#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-order.php:130
 #: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-admin-new-vendor-account.php:132
 #: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-admin-added-new-product-to-vendor.php:142
 msgid "Enable this email notification"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-product-added.php:137
+#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-product-added.php:150
 #: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-admin-new-vendor-account.php:136
 msgid "Recipient(s)"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-product-added.php:139
+#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-product-added.php:152
 #: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-admin-new-vendor-account.php:138
 #, php-format
 msgid ""
@@ -1318,19 +1414,19 @@ msgid ""
 "code>."
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-product-added.php:144
+#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-product-added.php:157
 #: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-notify-shipped.php:127
-#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-order.php:122
+#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-order.php:134
 #: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-admin-new-vendor-account.php:143
 #: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-admin-added-new-product-to-vendor.php:146
-#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-commission-paid.php:114
+#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-commission-paid.php:115
 #: dc-woocommerce-multi-vendor/templates/widget/quick-info.php:32
 msgid "Subject"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-product-added.php:146
+#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-product-added.php:159
 #: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-notify-shipped.php:129
-#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-order.php:124
+#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-order.php:136
 #: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-admin-new-vendor-account.php:145
 #: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-admin-added-new-product-to-vendor.php:148
 #, php-format
@@ -1339,18 +1435,18 @@ msgid ""
 "subject: <code>%s</code>."
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-product-added.php:151
+#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-product-added.php:164
 #: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-notify-shipped.php:134
-#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-order.php:129
+#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-order.php:141
 #: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-admin-new-vendor-account.php:150
 #: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-admin-added-new-product-to-vendor.php:153
-#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-commission-paid.php:121
+#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-commission-paid.php:122
 msgid "Email Heading"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-product-added.php:153
+#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-product-added.php:166
 #: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-notify-shipped.php:136
-#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-order.php:131
+#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-order.php:143
 #: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-admin-new-vendor-account.php:152
 #: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-admin-added-new-product-to-vendor.php:155
 #, php-format
@@ -1359,42 +1455,42 @@ msgid ""
 "Leave blank to use the default heading: <code>%s</code>."
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-product-added.php:158
+#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-product-added.php:171
 #: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-notify-shipped.php:141
-#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-order.php:136
+#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-order.php:148
 #: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-admin-new-vendor-account.php:157
 #: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-admin-added-new-product-to-vendor.php:160
-#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-commission-paid.php:128
+#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-commission-paid.php:129
 msgid "Email type"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-product-added.php:160
+#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-product-added.php:173
 #: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-notify-shipped.php:143
-#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-order.php:138
+#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-order.php:150
 #: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-admin-new-vendor-account.php:159
 #: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-admin-added-new-product-to-vendor.php:162
 msgid "Choose which format of email to send."
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-product-added.php:164
+#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-product-added.php:177
 #: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-notify-shipped.php:147
-#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-order.php:142
+#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-order.php:154
 #: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-admin-new-vendor-account.php:163
 #: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-admin-added-new-product-to-vendor.php:166
 msgid "Plain text"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-product-added.php:165
+#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-product-added.php:178
 #: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-notify-shipped.php:148
-#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-order.php:143
+#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-order.php:155
 #: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-admin-new-vendor-account.php:164
 #: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-admin-added-new-product-to-vendor.php:167
 msgid "HTML"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-product-added.php:166
+#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-product-added.php:179
 #: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-notify-shipped.php:149
-#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-order.php:144
+#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-order.php:156
 #: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-admin-new-vendor-account.php:165
 #: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-admin-added-new-product-to-vendor.php:168
 msgid "Multipart"
@@ -1508,25 +1604,25 @@ msgstr ""
 msgid "[{site_title}] Commission paid"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-commission-paid.php:110
+#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-commission-paid.php:111
 msgid "Enable notification for this email"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-commission-paid.php:116
+#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-commission-paid.php:117
 #, php-format
 msgid ""
 "This controls the email subject line. Leave it blank to use the default "
 "subject: <code>%s</code>."
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-commission-paid.php:123
+#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-commission-paid.php:124
 #, php-format
 msgid ""
 "This controls the main heading contained in the email notification. Leave it "
 "blank to use the default heading: <code>%s</code>."
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-commission-paid.php:130
+#: dc-woocommerce-multi-vendor/classes/emails/class-wc-email-vendor-new-commission-paid.php:131
 msgid "Choose format for the email that will be sent."
 msgstr ""
 
@@ -1546,10 +1642,18 @@ msgid "Shop Slug"
 msgstr ""
 
 #: dc-woocommerce-multi-vendor/templates/shortcode/shop_settings.php:39
+msgid "Hide description in Vendor Shop"
+msgstr ""
+
+#: dc-woocommerce-multi-vendor/templates/shortcode/shop_settings.php:44
 msgid "Company"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/templates/shortcode/shop_settings.php:102
+#: dc-woocommerce-multi-vendor/templates/shortcode/shop_settings.php:89
+msgid "Facebook Profile Ur"
+msgstr ""
+
+#: dc-woocommerce-multi-vendor/templates/shortcode/shop_settings.php:133
 msgid "Save"
 msgstr ""
 
@@ -1601,32 +1705,32 @@ msgstr ""
 msgid "Quantity: %d"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/templates/shortcode/vendor_orders_by_product.php:121
+#: dc-woocommerce-multi-vendor/templates/shortcode/vendor_orders_by_product.php:124
 msgid "Customer note"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/templates/shortcode/vendor_orders_by_product.php:125
-#: dc-woocommerce-multi-vendor/templates/shortcode/vendor_order_detail.php:79
+#: dc-woocommerce-multi-vendor/templates/shortcode/vendor_orders_by_product.php:128
+#: dc-woocommerce-multi-vendor/templates/shortcode/vendor_order_detail.php:106
 msgid "No customer note."
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/templates/shortcode/vendor_orders_by_product.php:142
+#: dc-woocommerce-multi-vendor/templates/shortcode/vendor_orders_by_product.php:145
 #, php-format
 msgid "Comments (%s)"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/templates/shortcode/vendor_orders_by_product.php:156
-#: dc-woocommerce-multi-vendor/templates/shortcode/vendor_order_detail.php:94
+#: dc-woocommerce-multi-vendor/templates/shortcode/vendor_orders_by_product.php:159
+#: dc-woocommerce-multi-vendor/templates/shortcode/vendor_order_detail.php:121
 #, php-format
 msgid "added %s ago"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/templates/shortcode/vendor_orders_by_product.php:173
-#: dc-woocommerce-multi-vendor/templates/shortcode/vendor_order_detail.php:109
+#: dc-woocommerce-multi-vendor/templates/shortcode/vendor_orders_by_product.php:176
+#: dc-woocommerce-multi-vendor/templates/shortcode/vendor_order_detail.php:136
 msgid "Add comment"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/templates/shortcode/vendor_orders_by_product.php:188
+#: dc-woocommerce-multi-vendor/templates/shortcode/vendor_orders_by_product.php:191
 msgid ""
 "You havenot selected a product/'s orders to view! Please go back to the "
 "Vendor Dashboard and click Show Orders on the product you'd like to view."
@@ -1648,48 +1752,52 @@ msgstr ""
 msgid "Purchase Note"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/templates/shortcode/vendor_order_detail.php:73
+#: dc-woocommerce-multi-vendor/templates/shortcode/vendor_order_detail.php:75
+msgid "Coupon Used :"
+msgstr ""
+
+#: dc-woocommerce-multi-vendor/templates/shortcode/vendor_order_detail.php:100
 msgid "Customer Note"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/templates/shortcode/vendor_order_detail.php:89
+#: dc-woocommerce-multi-vendor/templates/shortcode/vendor_order_detail.php:116
 msgid "Comments"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/templates/shortcode/vendor_order_detail.php:115
+#: dc-woocommerce-multi-vendor/templates/shortcode/vendor_order_detail.php:142
 #: dc-woocommerce-multi-vendor/templates/emails/vendor-notify-shipped.php:59
-#: dc-woocommerce-multi-vendor/templates/emails/vendor-new-order.php:58
+#: dc-woocommerce-multi-vendor/templates/emails/vendor-new-order.php:60
 #: dc-woocommerce-multi-vendor/templates/emails/plain/vendor-notify-shipped.php:42
 #: dc-woocommerce-multi-vendor/templates/emails/plain/vendor-new-order.php:47
 msgid "Customer details"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/templates/shortcode/vendor_order_detail.php:120
+#: dc-woocommerce-multi-vendor/templates/shortcode/vendor_order_detail.php:147
 msgid "Name:"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/templates/shortcode/vendor_order_detail.php:121
+#: dc-woocommerce-multi-vendor/templates/shortcode/vendor_order_detail.php:148
 #: dc-woocommerce-multi-vendor/templates/emails/vendor-notify-shipped.php:62
-#: dc-woocommerce-multi-vendor/templates/emails/vendor-new-order.php:61
+#: dc-woocommerce-multi-vendor/templates/emails/vendor-new-order.php:63
 #: dc-woocommerce-multi-vendor/templates/emails/plain/vendor-notify-shipped.php:45
 #: dc-woocommerce-multi-vendor/templates/emails/plain/vendor-new-order.php:50
 msgid "Email:"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/templates/shortcode/vendor_order_detail.php:122
+#: dc-woocommerce-multi-vendor/templates/shortcode/vendor_order_detail.php:149
 msgid "Telephone:"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/templates/shortcode/vendor_order_detail.php:134
+#: dc-woocommerce-multi-vendor/templates/shortcode/vendor_order_detail.php:161
 msgid "Billing Address"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/templates/shortcode/vendor_order_detail.php:138
-#: dc-woocommerce-multi-vendor/templates/shortcode/vendor_order_detail.php:152
+#: dc-woocommerce-multi-vendor/templates/shortcode/vendor_order_detail.php:165
+#: dc-woocommerce-multi-vendor/templates/shortcode/vendor_order_detail.php:179
 msgid "N/A"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/templates/shortcode/vendor_order_detail.php:148
+#: dc-woocommerce-multi-vendor/templates/shortcode/vendor_order_detail.php:175
 msgid "Shipping Address"
 msgstr ""
 
@@ -1708,16 +1816,16 @@ msgid ""
 "page."
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/templates/shortcode/vendor_report.php:23
-#: dc-woocommerce-multi-vendor/templates/shortcode/vendor_report.php:45
+#: dc-woocommerce-multi-vendor/templates/shortcode/vendor_report.php:19
+#: dc-woocommerce-multi-vendor/templates/shortcode/vendor_report.php:39
 msgid "SALES REPORT"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/templates/shortcode/vendor_report.php:32
+#: dc-woocommerce-multi-vendor/templates/shortcode/vendor_report.php:26
 msgid "Vendor Total Sales Report : "
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/templates/shortcode/vendor_report.php:50
+#: dc-woocommerce-multi-vendor/templates/shortcode/vendor_report.php:44
 msgid ""
 "There are no sale report as you have already applied for vendor, Please wait "
 "untill admin approval. "
@@ -1760,7 +1868,7 @@ msgid "Order: %s"
 msgstr ""
 
 #: dc-woocommerce-multi-vendor/templates/emails/vendor-notify-shipped.php:29
-#: dc-woocommerce-multi-vendor/templates/emails/vendor-new-order.php:23
+#: dc-woocommerce-multi-vendor/templates/emails/vendor-new-order.php:25
 msgid "Quantity"
 msgstr ""
 
@@ -1769,14 +1877,13 @@ msgid "Price"
 msgstr ""
 
 #: dc-woocommerce-multi-vendor/templates/emails/vendor-notify-shipped.php:65
-#: dc-woocommerce-multi-vendor/templates/emails/vendor-new-order.php:64
+#: dc-woocommerce-multi-vendor/templates/emails/vendor-new-order.php:66
 #: dc-woocommerce-multi-vendor/templates/emails/plain/vendor-notify-shipped.php:48
 #: dc-woocommerce-multi-vendor/templates/emails/plain/vendor-new-order.php:53
 msgid "Tel:"
 msgstr ""
 
 #: dc-woocommerce-multi-vendor/templates/emails/new-admin-product.php:19
-#: dc-woocommerce-multi-vendor/templates/emails/new-product.php:19
 #: dc-woocommerce-multi-vendor/templates/emails/plain/new-admin-product.php:18
 #: dc-woocommerce-multi-vendor/templates/emails/plain/new-product.php:17
 #, php-format
@@ -1784,7 +1891,6 @@ msgid "Hi there. This is a notification about a new product on %s."
 msgstr ""
 
 #: dc-woocommerce-multi-vendor/templates/emails/new-admin-product.php:22
-#: dc-woocommerce-multi-vendor/templates/emails/new-product.php:22
 #: dc-woocommerce-multi-vendor/templates/emails/plain/new-admin-product.php:20
 #: dc-woocommerce-multi-vendor/templates/emails/plain/new-product.php:19
 #, php-format
@@ -1792,7 +1898,7 @@ msgid "Product title: %s"
 msgstr ""
 
 #: dc-woocommerce-multi-vendor/templates/emails/new-admin-product.php:23
-#: dc-woocommerce-multi-vendor/templates/emails/new-product.php:23
+#: dc-woocommerce-multi-vendor/templates/emails/new-product.php:27
 #: dc-woocommerce-multi-vendor/templates/emails/plain/new-admin-product.php:22
 #: dc-woocommerce-multi-vendor/templates/emails/plain/new-product.php:21
 #, php-format
@@ -1800,7 +1906,6 @@ msgid "Submitted by: %s"
 msgstr ""
 
 #: dc-woocommerce-multi-vendor/templates/emails/new-admin-product.php:26
-#: dc-woocommerce-multi-vendor/templates/emails/new-product.php:24
 #: dc-woocommerce-multi-vendor/templates/emails/plain/new-admin-product.php:25
 #: dc-woocommerce-multi-vendor/templates/emails/plain/new-product.php:23
 #, php-format
@@ -1825,7 +1930,7 @@ msgstr ""
 msgid "You can contact with the site-admin at %s"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/templates/emails/vendor-new-order.php:16
+#: dc-woocommerce-multi-vendor/templates/emails/vendor-new-order.php:18
 #: dc-woocommerce-multi-vendor/templates/emails/plain/vendor-new-order.php:17
 #, php-format
 msgid ""
@@ -1833,24 +1938,35 @@ msgid ""
 "follows:"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/templates/emails/vendor-new-order.php:24
-msgid "Line Total"
-msgstr ""
-
-#: dc-woocommerce-multi-vendor/templates/emails/vendor-new-order.php:60
+#: dc-woocommerce-multi-vendor/templates/emails/vendor-new-order.php:62
 msgid "Customer Name:"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/templates/emails/vendor-new-order.php:74
+#: dc-woocommerce-multi-vendor/templates/emails/vendor-new-order.php:76
 #: dc-woocommerce-multi-vendor/templates/emails/plain/vendor-notify-shipped.php:50
 #: dc-woocommerce-multi-vendor/templates/emails/plain/vendor-new-order.php:59
 msgid "Billing address"
 msgstr ""
 
-#: dc-woocommerce-multi-vendor/templates/emails/vendor-new-order.php:87
+#: dc-woocommerce-multi-vendor/templates/emails/vendor-new-order.php:89
 #: dc-woocommerce-multi-vendor/templates/emails/plain/vendor-notify-shipped.php:53
 #: dc-woocommerce-multi-vendor/templates/emails/plain/vendor-new-order.php:65
 msgid "Shipping address"
+msgstr ""
+
+#: dc-woocommerce-multi-vendor/templates/emails/new-product.php:23
+#, php-format
+msgid "Hi there. This is a notification about a new %s on %s."
+msgstr ""
+
+#: dc-woocommerce-multi-vendor/templates/emails/new-product.php:26
+#, php-format
+msgid "%s title: %s"
+msgstr ""
+
+#: dc-woocommerce-multi-vendor/templates/emails/new-product.php:28
+#, php-format
+msgid "Edit %s: %s"
 msgstr ""
 
 #: dc-woocommerce-multi-vendor/templates/emails/vendor-new-account.php:18

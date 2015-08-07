@@ -4,7 +4,7 @@ Plugin Name: DC WooCommerce Multi Vendor
 Plugin URI: http://dualcube.com
 Description: Set up vendor market place that allows vendor to manage their own products and earn commission easily.
 Author: Dualcube, Mousumi Saha
-Version: 1.0.2
+Version: 1.1.0
 Author URI: http://dualcube.com
 */
 

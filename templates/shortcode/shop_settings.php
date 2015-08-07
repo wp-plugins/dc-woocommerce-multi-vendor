@@ -81,8 +81,34 @@ $vendor_hide_description = get_user_meta($user->ID, '_vendor_hide_description', 
 		</p>
 		
 		<p class="vendor_paypal_email">
-			<label style="width: 160px; display: inline-block;"><strong><?php _e('Paypal Email', $DC_Product_Vendor->text_domain) ?>Paypal Email</strong></label>
+			<label style="width: 160px; display: inline-block;"><strong><?php _e('Paypal Email', $DC_Product_Vendor->text_domain) ?></strong></label>
 			<input type="text" id="vendor_paypal_email" name="vendor_paypal_email" class="user-profile-fields" value="<?php echo $vendor_paypal_email['value']; ?>" placeholder=""  />
+		</p>
+		
+		<p class="vendor_fb_profile">
+			<label style="width: 160px; display: inline-block;"><strong><?php _e('Facebook Profile Ur', $DC_Product_Vendor->text_domain) ?></strong></label>
+			<input type="text" id="vendor_fb_profile" name="vendor_fb_profile" class="user-profile-fields" value="<?php echo $vendor_fb_profile['value']; ?>" placeholder=""  />
+		</p>
+		
+		<p class="vendor_twitter_profile">
+			<label style="width: 160px; display: inline-block;"><strong><?php _e('Twitter Profile Url', $DC_Product_Vendor->text_domain) ?></strong></label>
+			<input type="text" id="vendor_twitter_profile" name="vendor_twitter_profile" class="user-profile-fields" value="<?php echo $vendor_twitter_profile['value']; ?>" placeholder=""  />
+		</p>
+		
+		<p class="vendor_google_plus_profile">
+			<label style="width: 160px; display: inline-block;"><strong><?php _e('Google+ Profile Url', $DC_Product_Vendor->text_domain) ?></strong></label>
+			<input type="text" id="vendor_google_plus_profile" name="vendor_google_plus_profile" class="user-profile-fields" value="<?php echo $vendor_google_plus_profile['value']; ?>" placeholder=""  />
+		</p>
+		
+		<p class="vendor_linkdin_profile">
+			<label style="width: 160px; display: inline-block;"><strong><?php _e('Linkdin Profile Url', $DC_Product_Vendor->text_domain) ?></strong></label>
+			<input type="text" id="vendor_linkdin_profile" name="vendor_linkdin_profile" class="user-profile-fields" value="<?php echo $vendor_linkdin_profile['value']; ?>" placeholder=""  />
+		</p>
+		
+			
+		<p class="vendor_youtube">
+			<label style="width: 160px; display: inline-block;"><strong><?php _e('Youtube Vedio Url', $DC_Product_Vendor->text_domain) ?></strong></label>
+			<input type="text" id="vendor_youtube" name="vendor_youtube" class="user-profile-fields" value="<?php echo $vendor_youtube['value']; ?>" placeholder=""  />
 		</p>
 		
 		<p class="vendor_image">

@@ -32,7 +32,8 @@ echo $vendor_items_dtl;
 
 echo "----------\n\n";
 if($DC_Product_Vendor->vendor_caps->vendor_capabilities_settings('show_cust_order_calulations')) {
-	if ( $totals = $order->get_order_item_totals() ) {
+	
+	if ( $totals = $vendor->dc_vendor_get_order_item_totals($order, $vendor_id) ) {
 		foreach ( $totals as $total ) {
 			echo $total['label'] . "\t " . $total['value'] . "\n";
 		}

@@ -30,11 +30,11 @@ global $DC_Product_Vendor;
 				$vendor_google_plus_profile = get_user_meta($vendor_id,'_vendor_google_plus_profile', true);
 				$vendor_youtube = get_user_meta($vendor_id,'_vendor_youtube', true);
 			?>
-				<?php if($vendor_fb_profile) { ?> <a href="<?php echo $vendor_fb_profile; ?>"><img src="<?php echo $DC_Product_Vendor->plugin_url . 'assets/images/facebook.png';?>" alt="facebook" height="20" width="20" ></a><?php } ?>
-				<?php if($vendor_twitter_profile) { ?> <a href="<?php echo $vendor_twitter_profile; ?>"><img src="<?php echo $DC_Product_Vendor->plugin_url . 'assets/images/twitter.png';?>" alt="twitter" height="20" width="20" ></a><?php } ?>
-				<?php if($vendor_linkdin_profile) { ?> <a href="<?php echo $vendor_linkdin_profile; ?>"><img src="<?php echo $DC_Product_Vendor->plugin_url . 'assets/images/linkedin.png';?>" alt="linkedin" height="20" width="20" ></a><?php } ?>
-				<?php if($vendor_google_plus_profile) { ?> <a href="<?php echo $vendor_google_plus_profile; ?>"><img src="<?php echo $DC_Product_Vendor->plugin_url . 'assets/images/google-plus.png';?>" alt="google_plus" height="20" width="20" ></a><?php } ?>
-				<?php if($vendor_youtube) { ?> <a href="<?php echo $vendor_youtube; ?>"><img src="<?php echo $DC_Product_Vendor->plugin_url . 'assets/images/youtube.png';?>" alt="youtube" height="20" width="20" ></a><?php } ?>
+				<?php if($vendor_fb_profile) { ?> <a target="_blank" href="<?php echo $vendor_fb_profile; ?>"><img src="<?php echo $DC_Product_Vendor->plugin_url . 'assets/images/facebook.png';?>" alt="facebook" height="20" width="20" ></a><?php } ?>
+				<?php if($vendor_twitter_profile) { ?> <a target="_blank" href="<?php echo $vendor_twitter_profile; ?>"><img src="<?php echo $DC_Product_Vendor->plugin_url . 'assets/images/twitter.png';?>" alt="twitter" height="20" width="20" ></a><?php } ?>
+				<?php if($vendor_linkdin_profile) { ?> <a target="_blank" href="<?php echo $vendor_linkdin_profile; ?>"><img src="<?php echo $DC_Product_Vendor->plugin_url . 'assets/images/linkedin.png';?>" alt="linkedin" height="20" width="20" ></a><?php } ?>
+				<?php if($vendor_google_plus_profile) { ?> <a target="_blank" href="<?php echo $vendor_google_plus_profile; ?>"><img src="<?php echo $DC_Product_Vendor->plugin_url . 'assets/images/google-plus.png';?>" alt="google_plus" height="20" width="20" ></a><?php } ?>
+				<?php if($vendor_youtube) { ?> <a target="_blank" href="<?php echo $vendor_youtube; ?>"><img src="<?php echo $DC_Product_Vendor->plugin_url . 'assets/images/youtube.png';?>" alt="youtube" height="20" width="20" ></a><?php } ?>
 			</div>
 		</div>
 	</div>
@@ -53,7 +53,7 @@ if(!$vendor_hide_description) { ?>
 					<label><strong>Desciption</strong></label>
 				</td>
 				<td style="padding: 15px;">
-					<i><?php echo stripslashes($string); ?></i>
+					<?php echo stripslashes($string); ?>
 				</td>
 			</tr>
 		</tbody>

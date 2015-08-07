@@ -36,7 +36,7 @@ if($vendor) {
 			</table>
 		<?php		
 		} else {
-			echo 'Sorry! You have not created any coupon till now.You can create your product specific coupon from - <a class="shop_url button button-primary" target="_blank" href='.admin_url( 'edit.php?post_type=shop_coupon' ).'><strong>Submit a Coupon</strong></a>';
+			echo 'Sorry! You have not created any coupon till now.You can create your product specific coupon from - <a class="shop_url button button-primary" target="_blank" href='.admin_url( 'edit.php?post_type=shop_coupon' ).'><strong>Submit a Product</strong></a>';
 		}
 	} else {
 		echo 'Sorry ! You havenot the capability to add coupons.';

@@ -100,6 +100,7 @@ class DC_Product_Vendor_Install {
 				'sold_by_cart_and_checkout' => 'Enable',
 				'catalog_colorpicker' => '#000000',
 				'catalog_hover_colorpicker' => '#000000',
+				'commission_type' => 'percent',
 			);
 			update_option('dc_general_settings_name', $general_settings);
 		}

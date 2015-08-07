@@ -51,3 +51,7 @@
 .dc-wpv-quick-info-wrapper #respond {
   padding: 0px;
 }
+.vendor_address label {
+  display: inline;
+  color: #fff;
+}

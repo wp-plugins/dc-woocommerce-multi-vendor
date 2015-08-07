@@ -50,13 +50,23 @@ class DC_Product_Vendor_Calculate_Commission {
 	* @return void
 	*/
 	public function record_commission( $product_id = 0, $line_total = 0, $order_id = 0, $variation_id = 0 ) {
+		global $DC_Product_Vendor;
 		if( $product_id > 0 && $line_total > 0 ) {
 			$vendor =  wp_get_post_terms( $product_id, 'dc_vendor_shop', array("fields" => "ids"));
 			if( $vendor ) {
 				$commission = $this->get_commission_percent( $product_id, $vendor[0], $variation_id );
+				if(isset($DC_Product_Vendor->vendor_caps->general_cap['commission_type'])) {
+					$commission_type = $DC_Product_Vendor->vendor_caps->general_cap['commission_type'];
+				} else {
+					$commission_type = 'percent';
+				}
 				if( $commission && $commission > 0 ) {
+					if($commission_type == 'percent') {					
 						$amount = (float) $line_total * ( (float)$commission / 100 );
-						$this->create_commission( $vendor[0], $product_id, $amount, $order_id, $variation_id);
+					} else {
+						$amount = (float)$commission;
+					}
+					$this->create_commission( $vendor[0], $product_id, $amount, $order_id, $variation_id);
 				}
 			}
 		}
@@ -122,6 +132,35 @@ class DC_Product_Vendor_Calculate_Commission {
 		if( $order_id > 0 ) { update_post_meta( $commission_id, '_commission_order_id', $order_id ); }
 		// Mark commission as unpaid
 		update_post_meta( $commission_id, '_paid_status', 'unpaid' );
+	}
+	
+	public function get_item_commission($product_id, $variation_id, $item, $order_id) {
+		global $DC_Product_Vendor;
+		$order = new WC_Order( $order_id );
+		$amount = 0;
+		$commission = 0;
+		if(isset($DC_Product_Vendor->vendor_caps->general_cap['commission_include_coupon'])) $line_total = $order->get_item_total( $item, false, false ) * $item['qty'];
+		else $line_total = $order->get_item_subtotal( $item, false, false ) *  $item['qty'];
+		if( $product_id && $line_total ) {
+			$vendor =  wp_get_post_terms( $product_id, 'dc_vendor_shop', array("fields" => "ids"));
+			if( $vendor ) {
+				$commission = $this->get_commission_percent( $product_id, $vendor[0], $variation_id );
+				if(isset($DC_Product_Vendor->vendor_caps->general_cap['commission_type'])) {
+					$commission_type = $DC_Product_Vendor->vendor_caps->general_cap['commission_type'];
+				} else {
+					$commission_type = 'percent';
+				}
+				if( $commission && $commission > 0 ) {
+					if($commission_type == 'percent') {					
+						$amount = (float) $line_total * ( (float)$commission / 100 );
+					} else {
+						$amount = (float)$commission;
+					}
+					return $amount;
+				}
+			}
+		}
+		return $amount;
 	}
 }
 ?>

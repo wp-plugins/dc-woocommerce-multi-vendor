@@ -26,7 +26,8 @@ class DC_Product_Vendor_Settings_Gneral {
                                   "ref" => &$this,
                                   "sections" => array(
                                                       "default_settings_section" => array("title" =>  __('General Options -', $DC_Product_Vendor->text_domain), // Section one
-                                                                                         "fields" => array("default_commission" => array('title' => __('Default commission (%)', $DC_Product_Vendor->text_domain), 'type' => 'text', 'id' => 'default_commission', 'label_for' => 'default_commission', 'name' => 'default_commission', 'hints' => __('This will be the default commssion(in percentage) paid to vendors if product and vendor specific commission is not set. ', $DC_Product_Vendor->text_domain)), // Text
+                                                                                         "fields" => array("default_commission" => array('title' => __('Default commission', $DC_Product_Vendor->text_domain), 'type' => 'text', 'id' => 'default_commission', 'label_for' => 'default_commission', 'name' => 'default_commission', 'desc' => __('This will be the default commssion(in percentage or fixed) paid to vendors if product and vendor specific commission is not set. ', $DC_Product_Vendor->text_domain)), // Text
+                                                                                         	 								 "commission_type" => array('title' => __('Commission Type', $DC_Product_Vendor->text_domain), 'type' => 'select', 'id' => 'commission_type', 'label_for' => 'commission_type', 'name' => 'commission_type', 'options' => array('' => 'Choose Commission Type', 'fixed' => 'Fixed Amount', 'percent' => 'Percentage Amount'), 'hints' => __('Choose your preferred type of commission type.It will effect all commisssion calculations.', $DC_Product_Vendor->text_domain)), // Select
                                                                                          	 								 "commission_include_coupon" => array('title' => __('Include coupons in commission calculations', $DC_Product_Vendor->text_domain), 'type' => 'checkbox', 'id' => 'commission_include_coupon', 'label_for' => 'commission_include_coupon', 'hints' => __('Decide whether vendor commissions have to be calculated including coupon value or not.', $DC_Product_Vendor->text_domain), 'name' => 'commission_include_coupon', 'value' => 'Enable'), // Checkbox
                                                                                                            "enable_registration" => array('title' => __('Allow user to become a vendor', $DC_Product_Vendor->text_domain), 'type' => 'checkbox', 'id' => 'enable_registration', 'label_for' => 'enable_registration', 'hints' => __('To enable registration option for a vendor, go to WooCommerce > Settings > Accounts and check the Enable registration on the My Account page.', $DC_Product_Vendor->text_domain), 'name' => 'enable_registration', 'value' => 'Enable'), // Checkbox
                                                                                                            "approve_vendor_manually" => array('title' => __('Approve vendors manually', $DC_Product_Vendor->text_domain), 'type' => 'checkbox', 'id' => 'approve_vendor_manually', 'label_for' => 'approve_vendor_manually', 'hints' => __('Checking this option will stop automatic registrations for vendors. The admin will have to manually approve each vendor registration application.', $DC_Product_Vendor->text_domain), 'name' => 'approve_vendor_manually', 'value' => 'Enable'), // Checkbox
@@ -61,6 +62,10 @@ class DC_Product_Vendor_Settings_Gneral {
 
     if( isset( $input['enable_registration'] ) )
       $new_input['enable_registration'] = sanitize_text_field( $input['enable_registration'] );
+    
+    if( isset( $input['commission_type'] ) )
+      $new_input['commission_type'] = sanitize_text_field( $input['commission_type'] );
+    
     
     if( isset( $input['notify_configure_vendor_store'] ) )
       $new_input['notify_configure_vendor_store'] = sanitize_text_field( $input['notify_configure_vendor_store'] );               

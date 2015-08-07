@@ -156,8 +156,10 @@ class DC_Product_Vendor_Capabilities {
 	 * Set output capability css
 	*/
 	function output_capability_css() {
-		$screen = get_current_screen();
 		global $post;
+		$screen = get_current_screen();
+		
+		$custom_css = '';
 		if (in_array( $screen->id, array( 'product' ))) {
 			if(is_user_dc_vendor(get_current_user_id())) {
 				if(!$this->vendor_can('tax')) {
@@ -239,14 +241,8 @@ class DC_Product_Vendor_Capabilities {
 	 * @return void 
 	*/
 	public function payment_complete_vendor_mail($order_id) {
-		$vendors = get_vendor_from_an_order($order_id);
-		if($vendors) {
-			foreach($vendors as $vendor) {
-				$vendor_obj = get_dc_vendor_by_term($vendor);
-				$email_admin = WC()->mailer()->emails['WC_Email_Vendor_New_Order'];
-				$email_admin->trigger( $order_id, $vendor_obj->user_data->user_email, $vendor_obj->term_id );
-			}
-		}
+		$email_admin = WC()->mailer()->emails['WC_Email_Vendor_New_Order'];
+		$email_admin->trigger( $order_id );
 	}
 	
 		

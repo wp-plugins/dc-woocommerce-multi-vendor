@@ -44,25 +44,36 @@ class WC_Email_Vendor_New_Order extends WC_Email {
 	 * @access public
 	 * @return void
 	 */
-	function trigger( $order_id, $vendor_email, $vendor_id ) {
-
-		if ( $order_id && $vendor_email ) {
-			$this->object 		= new WC_Order( $order_id );
-
-			$this->find[] = '{order_date}';
-			$this->replace[] = date_i18n( wc_date_format(), strtotime( $this->object->order_date ) );
-
-			$this->find[] = '{order_number}';
-			$this->replace[] = $this->object->get_order_number();
-			$this->vendor_email = $vendor_email;
-			$this->vendor_id = $vendor_id;
-			$this->recipient = $vendor_email;
+	function trigger( $order_id ) {
+		
+		$vendors = get_vendor_from_an_order($order_id);
+		
+		if($vendors) {
+			foreach($vendors as $vendor) {
+				
+				$vendor_obj = get_dc_vendor_by_term($vendor);
+				$vendor_email = $vendor_obj->user_data->user_email;
+				$vendor_id = $vendor_obj->term_id; 
+				
+					if ( $order_id && $vendor_email ) {
+						$this->object 		= new WC_Order( $order_id );
+			
+						$this->find[] = '{order_date}';
+						$this->replace[] = date_i18n( wc_date_format(), strtotime( $this->object->order_date ) );
+			
+						$this->find[] = '{order_number}';
+						$this->replace[] = $this->object->get_order_number();
+						$this->vendor_email = $vendor_email;
+						$this->vendor_id = $vendor_id;
+						$this->recipient = $vendor_email;
+				}
+		
+				if ( ! $this->is_enabled() || ! $this->get_recipient() )
+					return;
+		
+				$this->send( $this->get_recipient(), $this->get_subject(), $this->get_content(), $this->get_headers(), $this->get_attachments() );
+			}
 		}
-
-		if ( ! $this->is_enabled() || ! $this->get_recipient() )
-			return;
-
-		$this->send( $this->get_recipient(), $this->get_subject(), $this->get_content(), $this->get_headers(), $this->get_attachments() );
 	}
 
 	
@@ -95,7 +106,7 @@ class WC_Email_Vendor_New_Order extends WC_Email {
 		ob_start();
 		wc_get_template( $this->template_plain, array(
 			'email_heading'      => $this->get_heading(),
-			'vendor_email'         => $this->vendor_email,
+			'vendor_id'         => $this->vendor_id,
 			'order' 						=> $this->object,
 			'blogname'           => $this->get_blogname(),
 			'sent_to_admin' => false,

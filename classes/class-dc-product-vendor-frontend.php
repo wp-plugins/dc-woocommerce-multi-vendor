@@ -5,12 +5,60 @@ class DC_Product_Vendor_Frontend {
 		//enqueue scripts
 		add_action('wp_enqueue_scripts', array(&$this, 'frontend_scripts'));
 		//enqueue styles
-		add_action('wp_enqueue_scripts', array(&$this, 'frontend_styles'));
+		add_action( 'wp_enqueue_scripts', array(&$this, 'frontend_styles'));
 		add_action( 'woocommerce_archive_description', array(&$this, 'product_archive_vendor_info' ), 10);
 		add_action( 'template_redirect', array( &$this, 'load_product_archive_template' ) );
 		add_filter( 'body_class', array( &$this, 'set_product_archive_class' ) );
 		add_action( 'template_redirect', array(&$this, 'template_redirect' ));
-
+		add_action( 'woocommerce_checkout_order_processed', array(&$this, 'dc_checkout_order_processed'), 30, 2);
+	}
+	
+	/**
+	 * dc_checkout_order_processed only supports for flat rate per item shipping
+	 * @return void
+	 */
+	 
+	function dc_checkout_order_processed($order_id, $order_posted) {
+		$order = new WC_Order($order_id);
+		if( $order->has_shipping_method('flat_rate') ) {
+			$woocommerce_flat_rate_settings = get_option('woocommerce_flat_rate_settings');
+			$woocommerce_flat_rate_settings_cost = $woocommerce_flat_rate_settings['cost'];
+			$woocommerce_flat_rate_settings_fee = $woocommerce_flat_rate_settings['fee']; 
+			$woocommerce_flat_rates = get_option('woocommerce_flat_rates');
+			if($woocommerce_flat_rate_settings['enabled'] == 'yes') {
+				if($woocommerce_flat_rate_settings['type'] == 'item') {
+					$line_items = $order->get_items('line_item');
+					if (!empty($line_items)) {
+						foreach ( $line_items as $item_id => $item ) {
+							$fee = $cost = 0;
+							$_product = $order->get_product_from_item( $item );
+							$shipping_class = $_product->get_shipping_class();
+							if (isset( $woocommerce_flat_rates[ $shipping_class ] ) ) {
+								$cost = $woocommerce_flat_rates[ $shipping_class ]['cost'];
+								$fee	= $this->get_fee( $woocommerce_flat_rates[ $shipping_class ]['fee'], $_product->get_price() );
+							}  elseif ( $woocommerce_flat_rate_settings_cost !== '' ) {
+								$cost 	= $woocommerce_flat_rate_settings_cost;
+								$fee	= $this->get_fee( $woocommerce_flat_rate_settings_fee, $_product->get_price() );
+								$matched = true;
+							}
+							$cost_item_id = ( ( $cost + $fee ) * $item['qty'] );
+							wc_add_order_item_meta( $item_id, 'flat_shipping_per_item',  $cost_item_id);
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	function get_fee( $fee, $total ) {
+		$woocommerce_flat_rate_settings = get_option('woocommerce_flat_rate_settings');
+		if ( strstr( $fee, '%' ) ) {
+			$fee = ( $total / 100 ) * str_replace( '%', '', $fee );
+		}
+		if ( ! empty( $woocommerce_flat_rate_settings['minimum_fee'] ) && $woocommerce_flat_rate_settings['minimum_fee'] > $fee ) {
+			$fee = $woocommerce_flat_rate_settings['minimum_fee'];
+		}
+		return $fee;
 	}
 
 	/**

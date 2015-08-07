@@ -11,7 +11,9 @@
  
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly 
 global  $DC_Product_Vendor;
-do_action( 'woocommerce_email_header', $email_heading ); ?>
+do_action( 'woocommerce_email_header', $email_heading );
+
+?>
 
 <p><?php printf( __( 'An Order has received and marked as completed from %s. Their order is as follows:', $DC_Product_Vendor->text_domain ), $order->billing_first_name . ' ' . $order->billing_last_name ); ?></p>
 
@@ -21,7 +23,7 @@ do_action( 'woocommerce_email_header', $email_heading ); ?>
 		<tr>
 			<th scope="col" style="text-align:left; border: 1px solid #eee;"><?php _e( 'Product',  $DC_Product_Vendor->text_domain ); ?></th>
 			<th scope="col" style="text-align:left; border: 1px solid #eee;"><?php _e( 'Quantity',  $DC_Product_Vendor->text_domain ); ?></th>
-			<th scope="col" style="text-align:left; border: 1px solid #eee;"><?php _e( 'Line Total',  $DC_Product_Vendor->text_domain ); ?></th>
+			<th scope="col" style="text-align:left; border: 1px solid #eee;"><?php _e( 'Commission',  $DC_Product_Vendor->text_domain ); ?></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -34,13 +36,13 @@ do_action( 'woocommerce_email_header', $email_heading ); ?>
 </table>
 <?php 
 global $DC_Product_Vendor;
-
+$vendor = new DC_Vendor( absint( $vendor_id ) );
 if($DC_Product_Vendor->vendor_caps->vendor_capabilities_settings('show_cust_order_calulations')) {?>
 <table cellspacing="0" cellpadding="6" style="width: 100%; border: 1px solid #eee;" border="1" bordercolor="#eee">
 		<?php
-			if ( $totals = $order->get_order_item_totals() ) {
+			if ( $totals =  $vendor->dc_vendor_get_order_item_totals($order, $vendor_id) ) {
 				$i = 0;
-				foreach ( $totals as $total ) {
+				foreach ( $totals as $total_key => $total ) {
 					$i++;
 					?><tr>
 						<th scope="row" colspan="2" style="text-align:left; border: 1px solid #eee; <?php if ( $i == 1 ) echo 'border-top-width: 4px;'; ?>"><?php echo $total['label']; ?></th>
@@ -90,7 +92,8 @@ if($show_cust_billing_add) {
 		</tr>
 	</table>
 	<?php }
-}?>
+}
+?>
 
 
 

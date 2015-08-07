@@ -13,12 +13,17 @@ Class DC_Vendor_Admin_Dashboard {
 		// Add Shop Settings page 
 		add_action( 'admin_menu', array( $this, 'vendor_dashboard_pages') ); 
 		
+		add_action( 'woocommerce_product_options_shipping', array( $this, 'dc_product_options_shipping'));
+		
+		add_action(	'save_post', array( &$this, 'process_vendor_data' ) );
+		
 		//init export functions
     $this->export_csv();
     
     //init submit comment
     $this->submit_comment();
 	}
+	
 	
 	/**
 	 * Export CSV from vendor dasboard page
@@ -28,6 +33,7 @@ Class DC_Vendor_Admin_Dashboard {
 	*/	
 	function export_csv() {
 		global $DC_Product_Vendor;
+		
 		if($_SERVER['REQUEST_METHOD'] == 'POST') {
 			if( $DC_Product_Vendor->vendor_caps->vendor_capabilities_settings('is_order_csv_export') && !empty( $_POST[ 'export_orders' ] ) ) {
 				$order_data = array();
@@ -257,6 +263,96 @@ Class DC_Vendor_Admin_Dashboard {
 		if($vendor) {
 			$hook = add_menu_page( __( 'Orders', $DC_Product_Vendor->text_domain ), __( 'Orders', $DC_Product_Vendor->text_domain ), 'read', 'dc-vendor-orders', array( $this, 'orders_page' ) );
 			add_action( "load-$hook", array( $this, 'add_options' ) );
+			if ($DC_Product_Vendor->vendor_caps->vendor_capabilities_settings('give_shipping') ) {
+				$give_shipping_override = get_user_meta( $user->ID, '_vendor_give_shipping', true ); 
+				if(!$give_shipping_override) {
+					add_menu_page( __( 'Shipping', $DC_Product_Vendor->text_domain ), __( 'Shipping', $DC_Product_Vendor->text_domain ), 'read', 'dc-vendor-shipping', array( $this, 'shipping_page' ) );
+				}
+			}
+		}
+	}
+	
+	/**
+	 * HTML setup for the Orders Page 
+	 */
+	public static function shipping_page(){
+		global $DC_Product_Vendor;
+		
+		$vendor_user_id = get_current_user_id();
+		$vendor_data = get_dc_vendor($vendor_user_id);
+		if($_SERVER['REQUEST_METHOD'] == 'POST') {
+			if(isset( $_POST['vendor_shipping_data'] )) {
+				$fee = 0;
+				$vendor_shipping_data = get_user_meta($vendor_user_id, 'vendor_shipping_data', true);
+				$cost = $_POST['vendor_shipping_data']['shipping_amount'];
+				$fee = $_POST['vendor_shipping_data']['handling_amount'];
+				if(!empty($cost)) {
+					$shipping_updt = true; 
+					$dc_flat_rates = array();
+					if(empty($vendor_shipping_data) ) {
+						$shipping_term = wp_insert_term( $vendor_data->user_data->user_login, 'product_shipping_class' );
+						if(!is_wp_error($shipping_term)) {
+							update_user_meta($vendor_user_id, 'shipping_class_id', $shipping_term['term_id']);
+							add_woocommerce_term_meta($shipping_term['term_id'], 'vendor_id', $vendor_user_id); 
+							add_woocommerce_term_meta($shipping_term['term_id'], 'vendor_shipping_origin',  $_POST['vendor_shipping_data']['ship_from']);
+						} else {
+							$shipping_updt = false;
+						}
+					} else {
+						$shipping_class_id = get_user_meta($vendor_user_id, 'shipping_class_id', true);
+						update_woocommerce_term_meta($shipping_class_id, 'vendor_shipping_origin',  $_POST['vendor_shipping_data']['ship_from']);
+					}
+					$woocommerce_flat_rates = get_option('woocommerce_flat_rates');
+					$woocommerce_flat_rates[$vendor_data->user_data->user_login] = array('cost' => $cost, 'fee' => $fee);
+					update_option('woocommerce_flat_rates', $woocommerce_flat_rates);
+					update_user_meta($vendor_user_id, 'vendor_shipping_data', $_POST['vendor_shipping_data']);
+					if($shipping_updt) {
+						echo '<div class="updated">Shipping Data Updated.</div>';
+					} else {
+						echo '<div class="error">Shipping Data Not Updated.</div>';
+						delete_user_meta($vendor_user_id, 'vendor_shipping_data');
+					}
+				} else {
+					echo '<div class="error">Specify Shipping Amount.</div>';
+				}
+			}
+		} 
+		
+		$vendor_shipping_data = get_user_meta($vendor_user_id, 'vendor_shipping_data', true);		
+		?>
+		<div class="wrap">
+
+			<div id="icon-woocommerce" class="icon32 icon32-woocommerce-reports"><br/></div>
+			<h2><?php _e( 'Shipping', $DC_Product_Vendor->text_domain ); ?></h2>
+
+			<form name="vendor_shipping_form" method="post">
+				<table>
+					<tbody>
+						<tr>
+							<td><label>Enter Shipping Amount</label></td>
+							<td><input name="vendor_shipping_data[shipping_amount]" type="number" step="0.01" value="<?php echo $vendor_shipping_data['shipping_amount']; ?>" /></td>
+						</tr>
+						<tr>
+							<td><label>Enter Handling Fee</label></td>
+							<td><input name="vendor_shipping_data[handling_amount]" type="number" step="0.01" value="<?php echo $vendor_shipping_data['handling_amount']; ?>" /></td>
+						</tr>
+						<tr>
+							<td><label>Ship From</label></td>
+							<td><input name="vendor_shipping_data[ship_from]" type="text" value="<?php echo $vendor_shipping_data['ship_from']; ?>" /></td>
+						</tr>
+					</tbody>
+				</table>
+				<?php submit_button(); ?>
+			</form>
+			<br class="clear"/>
+		</div>
+		<?php
+	}
+	
+	function process_vendor_data($post_id) {
+		$post = get_post( $post_id );
+		if( $post->post_type == 'product' ) {
+			if(isset($_POST['dc_product_shipping_class']))	wp_set_object_terms( $post_id, (int)wc_clean( $_POST['dc_product_shipping_class'] ), 'product_shipping_class', false );
 		}
 	}
 	
@@ -269,8 +365,7 @@ Class DC_Vendor_Admin_Dashboard {
 	 *
 	 * @return unknown
 	 */
-	public static function set_table_option( $status, $option, $value )
-	{
+	public static function set_table_option( $status, $option, $value )	{
 		if ( $option == 'orders_per_page' ) {
 			return $value;
 		}
@@ -280,8 +375,7 @@ Class DC_Vendor_Admin_Dashboard {
 	/**
 	 * add_options
 	 */
-	public static function add_options()
-	{
+	public static function add_options()	{
 		global $DC_Vendor_Order_Page;
 		$args = array(
 			'label'   => 'Rows',
@@ -298,8 +392,7 @@ Class DC_Vendor_Admin_Dashboard {
 	/**
 	 * HTML setup for the Orders Page 
 	 */
-	public static function orders_page()
-	{
+	public static function orders_page(){
 		global $woocommerce, $DC_Vendor_Order_Page, $DC_Product_Vendor;
 		$DC_Vendor_Order_Page->prepare_items();
 
@@ -318,8 +411,64 @@ Class DC_Vendor_Admin_Dashboard {
 			<div id="ajax-response"></div>
 			<br class="clear"/>
 		</div>
-
-<?php }
+		<?php 
+	}
+	
+	function dc_product_options_shipping() { 
+		global $DC_Product_Vendor, $post;
+		
+		$classes = get_the_terms( $post->ID, 'product_shipping_class' );
+		if ( $classes && ! is_wp_error( $classes ) ) {
+			$current_shipping_class = current( $classes )->term_id;
+		} else {
+			$current_shipping_class = false;
+		}
+		$product_shipping_class = get_terms( 'product_shipping_class', array('hide_empty' => 0));
+		$current_user_id = get_current_user_id();
+		$option = '<option value="-1">No shipping class</option>';
+		
+		if(!empty($product_shipping_class)) {
+			$shipping_option_array = array();
+			$vednor_shipping_option_array = array();
+			foreach($product_shipping_class as $product_shipping) {
+				$vendor_shipping_data = get_user_meta($current_user_id, 'vendor_shipping_data', true);		
+				if(is_user_dc_vendor($current_user_id) ) {
+					$vendor_id = get_woocommerce_term_meta( $product_shipping->term_id, 'vendor_id', true );
+					if(!$vendor_id)	{
+						$shipping_option_array[$product_shipping->term_id] = $product_shipping->name;
+					} else {
+						if($vendor_id == $current_user_id) {
+							$vednor_shipping_option_array[$product_shipping->term_id] = $product_shipping->name;
+						}
+					}
+				} else {
+					$shipping_option_array[$product_shipping->term_id] = $product_shipping->name;
+				}
+			}
+			if(!empty($vednor_shipping_option_array)) {
+				$shipping_option_array = array();
+				$shipping_option_array = $vednor_shipping_option_array;
+			}
+			if(!empty($shipping_option_array)) {
+				foreach($shipping_option_array as $shipping_option_array_key => $shipping_option_array_val) {
+					if($current_shipping_class && $shipping_option_array_key == $current_shipping_class) {
+						$option .= '<option selected value="'.$shipping_option_array_key.'">'.$shipping_option_array_val.'</option>';
+					} else {
+						$option .= '<option value="'.$shipping_option_array_key.'">'.$shipping_option_array_val.'</option>';
+					}
+				}
+			}
+		}
+		?>
+		<p class="form-field dimensions_field">
+			<label for="product_shipping_class">Shipping class</label> 
+			<select class="select short" id="dc_product_shipping_class" name="dc_product_shipping_class">
+				<?php echo $option; ?>
+			</select>
+			<img class="help_tip" src="http://localhost/dc_vendor_demo/wp-content/plugins/woocommerce/assets/images/help.png" height="16" width="16">
+		</p>
+		<?php
+	}
 }
 
 if ( !class_exists( 'WP_List_Table' ) ) require_once ABSPATH . 'wp-admin/includes/class-wp-list-table.php';
@@ -539,7 +688,7 @@ class DC_Vendor_Order_Page extends WP_List_Table {
 		
 		$orders = array(); 
 
-		$_orders = $vendor->get_orders();
+		$_orders = array_unique($vendor->get_orders());
 		
 		if (!empty( $_orders ) ) { 
 			foreach ( $_orders as $order_id ) {
@@ -619,6 +768,7 @@ class DC_Vendor_Order_Page extends WP_List_Table {
 		$this->items = $found_data;
 		
 	}
+	
 
 }
 ?>

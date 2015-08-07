@@ -320,38 +320,11 @@ class DC_Vendor {
 			if( $items ) {
 				foreach( $items as $item_id => $item ) {
 					$product_id = $order->get_item_meta( $item_id, '_product_id', true );
-					$variation_id = $order->get_item_meta( $item_id, '_variation_id', true );
-					if(!empty($variation_id)) {
-						$product_id = $variation_id;
-					}
+					
 					if( $product_id ) {
-						$commissions = false;
 						if( $term_id > 0 ) {
-							$args = array(
-								'post_type' =>  'dc_commission',
-								'post_status' => array( 'publish', 'private' ),
-								'posts_per_page' => -1,
-								'meta_query' => array(
-									array(
-										'key' => '_commission_vendor',
-										'value' => absint($term_id),
-										'compare' => '='
-									),
-									array(
-										'key' => '_commission_product',
-										'value' => absint($product_id),
-										'compare' => '='
-									),
-									array(
-										'key' => '_commission_order_id',
-										'value' => absint($order_id),
-										'compare' => '='
-									),
-								),
-							);
-							$commissions = get_posts( $args );
 							$product_vendors = wp_get_post_terms( $product_id, 'dc_vendor_shop', array("fields" => "ids"));
-							if(!empty($commissions)) { 
+							if(!empty($product_vendors) && $product_vendors[0] == $term_id) { 
 								$item_dtl[$item_id] = $item;
 							}
 						}
@@ -408,6 +381,8 @@ class DC_Vendor {
 	*/	
 	public function vendor_order_item_table( $order, $vendor_id ) {
 		global $DC_Product_Vendor;
+		require_once ( 'class-dc-product-vendor-calculate-commission.php' );
+		$commission_obj = new DC_Product_Vendor_Calculate_Commission();
 		$vendor_items = $this->get_vendor_items_order($order->id, $vendor_id);
 		foreach( $vendor_items as $item ) {
 			$_product     = apply_filters( 'dc_woocommerce_order_item_product', $order->get_product_from_item( $item ), $item );
@@ -429,7 +404,14 @@ class DC_Vendor {
 						?>
 				</td>
 				<td scope="col" style="text-align:left; border: 1px solid #eee;">
-					<?php echo $order->get_formatted_line_subtotal( $item ); ?>
+					<?php 
+					if (isset( $item['variation_id']) && !empty( $item['variation_id'])) {
+						$variation_id = $item['variation_id'] ;
+					} 					
+					$product_id = $item['product_id'];
+					
+					echo $commission_obj->get_item_commission( $product_id, $variation_id, $item, $order->id  ); 
+					?>
 				</td>
 			</tr>
 			<?php
@@ -444,7 +426,8 @@ class DC_Vendor {
 	
 	public function plain_vendor_order_item_table( $order, $vendor_id ) {
 		global $DC_Product_Vendor;
-		
+		require_once ( 'class-dc-product-vendor-calculate-commission.php' );
+		$commission_obj = new DC_Product_Vendor_Calculate_Commission();
 		$vendor_items = $this->get_vendor_items_order($order->id, $vendor_id);
 		foreach( $vendor_items as $item ) {
 		$_product     = apply_filters( 'woocommerce_order_item_product', $order->get_product_from_item( $item ), $item );
@@ -459,13 +442,203 @@ class DC_Vendor {
 		
 		// Quantity
 		echo "\n" . sprintf( __( 'Quantity: %s', $DC_Product_Vendor->text_domain ), $item['qty'] );
+		if (isset( $item['variation_id']) && !empty( $item['variation_id'])) {
+			$variation_id = $item['variation_id'] ;
+		} 					
+		$product_id = $item['product_id'];
 		
-		// Cost
-		echo "\n" . sprintf( __( 'Cost: %s', $DC_Product_Vendor->text_domain ), $order->get_formatted_line_subtotal( $item ) );
+		echo "\n" . sprintf( __( 'Commission: %s', $DC_Product_Vendor->text_domain ),  $commission_obj->get_item_commission( $product_id, $variation_id, $item, $order->id)  ); 
+		
 		echo "\n\n";
 
 		}
 	}
+	
+	/**
+	 * dc_vendor_get_order_item_totals function to get order item table of a vendor.
+	 * @access public
+	 * @param order id , vendor term id 
+	*/
+
+	public function dc_vendor_get_order_item_totals( $order, $vendor_id ) {
+		global $DC_Product_Vendor;	
+		require_once ( 'class-dc-product-vendor-calculate-commission.php' );
+		$commission_obj = new DC_Product_Vendor_Calculate_Commission();
+		$vendor_items = $this->get_vendor_items_order($order->id, $vendor_id);
+		$commission_amt = 0;
+		$return = array();
+		foreach( $vendor_items as $item ) {
+			if (isset( $item['variation_id']) && !empty( $item['variation_id'])) {
+				$variation_id = $item['variation_id'] ;
+			} 					
+			$product_id = $item['product_id'];
+			$commission_amt = (float)$commission_amt + (float) $commission_obj->get_item_commission( $product_id, $variation_id, $item, $order->id);
+			$return['commission_subtotal'] = array( 'label' => __( 'Commission Subtotal:',  $DC_Product_Vendor->text_domain ), 'value' => $commission_amt); 
+			$shipping_tax_total = $this->get_vendor_total_tax_and_shipping($order, $vendor_id, $item, $commission_obj);
+			if ($DC_Product_Vendor->vendor_caps->vendor_capabilities_settings('give_tax') ) {
+				$return['tax_subtotal'] = array( 'label' => '', 'value' => ''); 
+				$return[ 'tax_subtotal']['label'] =  __( 'Tax Subtotal:', $DC_Product_Vendor->text_domain );
+				$return[ 'tax_subtotal']['value'] = woocommerce_price($shipping_tax_total['tax_subtotal']);
+			} 
+			if ($DC_Product_Vendor->vendor_caps->vendor_capabilities_settings('give_shipping') ) {
+				$return['shipping_subtotal'] = array( 'label' => '', 'value' => ''); 
+				$return[ 'shipping_subtotal']['label'] =  __( 'Shipping Subtotal:', $DC_Product_Vendor->text_domain );
+				$return[ 'shipping_subtotal']['value'] = woocommerce_price($shipping_tax_total['shipping_subtotal']);
+			}
+		}
+		return $return;
+	}
+	
+	public function get_vendor_total_tax_and_shipping($order, $vendor_id, $product, $commission_obj) {
+		$tax_amt = 0;
+		$give_tax = false;
+		$give_shipping = false;
+		$vendor_items = $this->get_vendor_items_order($order->id, $vendor_id);
+		if(!empty($product)) {
+			$product_id 				= !empty( $product[ 'variation_id' ] ) ? $product[ 'variation_id' ] : $product[ 'product_id' ];
+			$vendor_user     				= get_dc_vendor_by_term($vendor_id);
+			$give_tax_override 			= get_user_meta( $vendor_user->id, '_vendor_give_tax', true ); 
+			$give_shipping_override = get_user_meta( $vendor_user->id, '_vendor_give_shipping', true ); 
+			$tax        				= !empty( $product[ 'line_tax' ] ) ? (float) $product[ 'line_tax' ] : 0;
+			
+			// Check if shipping is enabled
+			if ( get_option('woocommerce_calc_shipping') === 'no' ) { 
+				$shipping = 0; $shipping_tax = 0; 
+			} else {
+					$shipping_costs = $this->get_dc_vendor_shipping_total( $order->id, $product );
+					$shipping = $shipping_costs['amount']; 
+					$shipping_tax = $shipping_costs['tax']; 
+			}
+			
+
+			// Add line item tax and shipping taxes together 
+			$total_tax = (float) $tax + (float) $shipping_tax; 
+
+			// Tax override on a per vendor basis
+			if (!$give_tax_override ) $give_tax = true; 
+			
+			// Shipping override 
+			if (!$give_shipping_override ) $give_shipping = true; 
+			
+			$shipping_given += $give_shipping ? $shipping : 0;
+			$tax_given += $give_tax ? $total_tax : 0;
+			
+			return array('shipping_subtotal' => $shipping_given, 'tax_subtotal' => $tax_given);
+		}
+		return array('shipping_subtotal' => 0, 'tax_subtotal' => 0);
+	}
+	
+	public function get_dc_vendor_shipping_total( $order_id, $product ){
+		global $woocommerce;
+
+		$shipping_costs = array( 'amount' => 0, 'tax' => 0);
+		$shipping_due = 0; 
+		$method = '';
+		$_product     = get_product( $product[ 'product_id' ] );
+		$order = wc_get_order( $order_id ); 
+		
+		if ( $_product && $_product->needs_shipping() && !$_product->is_downloadable() ) {
+			// Get Shipping methods. 
+			$shipping_methods = $order->get_shipping_methods();
+			
+			// TODO: Currently this only allows one shipping method per order.
+			foreach ($shipping_methods as $shipping_method) {
+					$method = $shipping_method['method_id'];
+					break;
+			}
+			
+			//Currently we have support on local delivery and internation delivery shipping and flat rate.			
+			
+			if( $method == 'flat_rate') {
+				$woocommerce_flat_rate_settings = get_option('woocommerce_flat_rate_settings');
+				if($woocommerce_flat_rate_settings['type'] == 'item') {
+					$shipping_costs['amount'] = $product['flat_shipping_per_item'];
+					$shipping_costs['tax'] = 0;
+				}
+			}	else if ( $method == 'local_delivery' ) {
+				$local_delivery = get_option( 'woocommerce_local_delivery_settings' );
+
+				if ( $local_delivery[ 'type' ] == 'product' ) {
+					$shipping_costs['amount'] 	= $product[ 'qty' ] * $local_delivery[ 'fee' ];
+					$shipping_costs['tax'] 		= $this->calculate_shipping_tax( $shipping_costs['amount'], $order ); 
+				}
+
+				// International Delivery
+			} else if ( $method == 'international_delivery' ) {
+
+				$int_delivery = get_option( 'woocommerce_international_delivery_settings' );
+
+				if ( $int_delivery[ 'type' ] == 'item' ) {
+					$WC_Shipping_International_Delivery = new WC_Shipping_International_Delivery();
+					$fee                                = $WC_Shipping_International_Delivery->get_fee( $int_delivery[ 'fee' ], $_product->get_price() );
+					$shipping_costs['amount']           = ( $int_delivery[ 'cost' ] + $fee ) * $product[ 'qty' ];
+					$shipping_costs['tax'] 				= ( 'taxable' === $int_delivery[ 'tax_status' ] ) ?  $this->calculate_shipping_tax( $shipping_costs['amount'], $order ) : 0; 
+				}
+
+			}
+		}
+
+		$shipping_costs = apply_filters( 'dc_vendors_shipping_amount', $shipping_costs, $order_id, $product );
+
+		return $shipping_costs;
+	}
+	
+	public function calculate_shipping_tax($shipping_amount, $order) {
+		$tax_based_on = get_option( 'woocommerce_tax_based_on' );
+		$wc_tax_enabled = get_option( 'woocommerce_calc_taxes' ); 
+		$WC_Tax = new WC_Tax();
+		// if taxes aren't enabled don't calculate them 
+		if ( 'no' === $wc_tax_enabled ) return 0; 
+
+			if ( 'base' === $tax_based_on ) {
+
+					$default  = wc_get_base_location();
+					$country  = $default['country'];
+					$state    = $default['state'];
+					$postcode = '';
+					$city     = '';
+
+			} elseif ( 'billing' === $tax_based_on ) {
+
+					$country  = $order->billing_country;
+					$state    = $order->billing_state;
+					$postcode = $order->billing_postcode;
+					$city     = $order->billing_city;
+
+			} else {
+
+					$country  = $order->shipping_country;
+					$state    = $order->shipping_state;
+					$postcode = $order->shipping_postcode;
+					$city     = $order->shipping_city;
+
+			}
+
+		// Now calculate shipping tax
+			$matched_tax_rates = array();
+
+			$tax_rates         = $WC_Tax->find_rates( array(
+					'country'   => $country,
+					'state'     => $state,
+					'postcode'  => $postcode,
+					'city'      => $city,
+					'tax_class' => ''
+			) );
+
+
+			if ( $tax_rates ) {
+					foreach ( $tax_rates as $key => $rate ) {
+							if ( isset( $rate['shipping'] ) && 'yes' === $rate['shipping'] ) {
+									$matched_tax_rates[ $key ] = $rate;
+							}
+					}
+			}
+
+			$shipping_taxes     = $WC_Tax->calc_shipping_tax( $shipping_amount, $matched_tax_rates );
+			$shipping_tax_total = $WC_Tax->round( array_sum( $shipping_taxes ) );
+
+			return $shipping_tax_total; 
+}
 	
 	
 	/**

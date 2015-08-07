@@ -700,8 +700,43 @@ class DC_Product_Vendor_Shortcode {
 	*/
 	public function dc_vendorslist( $atts ) {
 		global $DC_Product_Vendor;
+		
+		extract( shortcode_atts( array(
+			'orderby'  => 'registered',
+			'order'    => 'ASC',
+		), $atts ) );
+		
     $vendors = '';
-		$get_all_vendors = get_dc_vendors();
+    $vendor_sort_type = $_GET['vendor_sort_type'];
+    if(isset($vendor_sort_type)) {
+    	$orderby = $vendor_sort_type;
+    	$order = 'ASC';
+    } 
+		$get_all_vendors = get_dc_vendors(array('orderby' => $orderby, 'order' => $order));
+		
+		$vendors .= '<div class="vendor_list">';
+		$vendors .= '<form name="vendor_sort" method="get" ><div class="vendor_sort">';
+		$vendors .= '<select class="select short" id="vendor_sort_type" name="vendor_sort_type">';
+		if($vendor_sort_type) {
+			if($vendor_sort_type == 'registered') {
+				$option = '<option value="">Select Option</option><option selected value="registered">By date</option><option value="name">By Alphabetically</option>';
+			} else if($vendor_sort_type == 'name') {
+				$option = '<option value="">Select Option</option><option value="registered">By date</option><option selected value="name">By Alphabetically</option>';
+			} else {
+				$option = '<option value="">Select Option</option><option value="registered">By date</option><option value="name">By Alphabetically</option>';
+			}
+		} else {
+			if($orderby == 'registered') {
+				$option = '<option value="">Select Option</option><option selected value="registered">By date</option><option value="name">By Alphabetically</option>';
+			} else if($orderby == 'name') {
+				$option = '<option value="">Select Option</option><option  value="registered">By date</option><option selected value="name">By Alphabetically</option>';
+			}
+		}
+		$vendors .= $option;
+		$vendors .= '</select>&nbsp;&nbsp;&nbsp;<input type="submit" value="Sort" />';
+		$vendors .= '</div>';
+		$vendors .= '</form>';
+		
 		foreach ( $get_all_vendors as $get_vendor ) {
 			if(!$get_vendor->image) $get_vendor->image = $DC_Product_Vendor->plugin_url . 'assets/images/WP-stdavatar.png';
 			$vendors .= '<div style="display:inline-block; margin-right:10%;">
@@ -712,6 +747,7 @@ class DC_Product_Vendor_Shortcode {
        							 </center>
        							</div>';
 		}
+		$vendors .= '</div>';
 		return $vendors;
 	}
 }

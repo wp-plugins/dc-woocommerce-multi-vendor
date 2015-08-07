@@ -1,4 +1,8 @@
 jQuery(document).ready(function($) {
+		
+	$( "#product_shipping_class" ).closest( "p" ).css( "display", "none" );
+  
+  
 	$('select.ajax_chosen_select_vendor').ajaxChosen({
 		method : 'GET',
 		url : ajaxurl,

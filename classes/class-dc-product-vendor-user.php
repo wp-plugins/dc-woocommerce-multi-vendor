@@ -32,6 +32,7 @@ class DC_Product_Vendor_User {
     add_filter( 'woocommerce_email_classes', array($this, 'dc_product_vendor_register_email_classes' ));
     add_action( 'set_user_role', array(&$this, 'set_user_role'), 30, 3 );
     add_action( 'woocommerce_before_my_account', array(&$this, 'woocommerce_before_my_account'));
+    add_filter( 'woocommerce_resend_order_emails_available', array( $this, 'order_action' ) );
   }
   
   /**
@@ -382,7 +383,7 @@ class DC_Product_Vendor_User {
 				'class' => 'user-profile-fields'
 			);
 			$fields['vendor_commission'] = array(
-				'label' => __('Commission (%)', $DC_Product_Vendor->text_domain),
+				'label' => __('Commission', $DC_Product_Vendor->text_domain),
 				'type' => 'text',
 				'hints' => __('Enter Default Commission', $DC_Product_Vendor->text_domain),
 				'value' => $vendor->commission,
@@ -396,6 +397,22 @@ class DC_Product_Vendor_User {
 				'value' => 'Enable',
 				'class' => 'user-profile-fields'
 			);
+			$fields['vendor_give_tax'] = array(
+				'label' => __('Withdraw to give Tax', $DC_Product_Vendor->text_domain), 
+				'type' => 'checkbox',
+				'hints' => __('Is Vendor can Give Tax.', $DC_Product_Vendor->text_domain),
+				'dfvalue' => $vendor->give_tax,
+				'value' => 'Enable',
+				'class' => 'user-profile-fields'
+			);
+			$fields['vendor_give_shipping'] = array(
+				'label' => __('Withdraw to give Shippng', $DC_Product_Vendor->text_domain), 
+				'type' => 'checkbox',
+				'hints' => __('Is Vendor can Give Shipping.', $DC_Product_Vendor->text_domain),
+				'dfvalue' => $vendor->give_shipping,
+				'value' => 'Enable',
+				'class' => 'user-profile-fields'
+			);
 		}
 		
 		if(! $DC_Product_Vendor->vendor_caps->vendor_capabilities_settings('is_submit_product')  ) {
@@ -405,7 +422,7 @@ class DC_Product_Vendor_User {
 		if(! $DC_Product_Vendor->vendor_caps->vendor_capabilities_settings('is_submit_coupon')  ) {
 			unset($fields['vendor_submit_coupon']);
 		}
-		
+				
   	return $fields;
   }
   
@@ -593,6 +610,10 @@ class DC_Product_Vendor_User {
 				delete_user_meta($user_id, '_vendor_submit_coupon');
 			} else if(!isset( $_POST['vendor_hide_description'] ) && $fieldkey == 'vendor_hide_description') {
 				delete_user_meta($user_id, '_vendor_hide_description');
+			} else if(!isset( $_POST['vendor_give_tax'] ) && $fieldkey == 'vendor_give_tax') {
+				delete_user_meta($user_id, '_vendor_give_tax');
+			} else if(!isset( $_POST['vendor_give_shipping'] ) && $fieldkey == 'vendor_give_shipping') {
+				delete_user_meta($user_id, '_vendor_give_shipping');
 			}
 		}
 		$this->user_change_cap( $user_id );
@@ -811,6 +832,19 @@ class DC_Product_Vendor_User {
 		$emails['WC_Email_Vendor_Commissions_Paid'] = new WC_Email_Vendor_Commissions_Paid();
 		
 		return $emails;
+	}
+	
+	/**
+	 *
+	 *
+	 * @param unknown $available_emails
+	 *
+	 * @return unknown
+	 */
+	public function order_action( $available_emails )	{
+		$available_emails[ ] = 'vendor_new_order';
+
+		return $available_emails;
 	}
 }
 ?>

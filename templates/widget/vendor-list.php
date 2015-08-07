@@ -13,17 +13,24 @@ global $DC_Product_Vendor;
 
 $vendor_count = count($vendors);
 if($vendor_count > 5 )	{ ?>
-	<div style=" height: 191px;overflow-y: scroll;width: 226px;" >
+	<div style="height: 308px; overflow-y: scroll; width: 226px;" >
 <?php } else {?>
-<div style=" height: 191px; width: 226px;" >
+<div style=" height: auto; width: 226px;" >
 <?php }
 if($vendors) {
-	foreach($vendors as $vendors_key => $vendor) { ?>
-		<h4 style="margin: 10px 0;">
-			<a href="<?php echo esc_attr( $vendor->permalink ); ?>">
-				<?php echo $vendor->user_data->display_name; ?>
-			</a>
-		</h4>
+	foreach($vendors as $vendors_key => $vendor) { 
+		if(!$vendor->image) $vendor->image = $DC_Product_Vendor->plugin_url . 'assets/images/WP-stdavatar.png';
+		?>
+		<div style=" width: 100%; margin-bottom: 5px; clear: both; display: block;">
+			<div style=" width: 25%;  display: inline;">		
+			<img width="50" height="50" class="vendor_img" style="display: inline;" src=<?php echo $vendor->image ?> id="vendor_image_display">
+			</div>
+			<div style=" width: 75%;  display: inline;  padding: 10px;">
+					<a href="<?php echo esc_attr( $vendor->permalink ); ?>">
+						<?php echo $vendor->user_data->display_name; ?>
+					</a>
+			</div>
+		</div>
 	<?php } 
 }?>
 </div>

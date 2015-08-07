@@ -4,7 +4,7 @@ Tags: WooCommerce vedors, WooCommerce, Vendor, Multivendor, marketplace, seller,
 Donate link: https://dualcube.com/
 Requires at least: 3.8.1
 Tested up to: 4.2.3
-Stable tag: 1.0.2
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -30,7 +30,7 @@ The DC WooCommerce Multivendor plugin was inspired by the features of the follow
 
 * Users can register as vendor, and admin approve / disapprove vendors' registration.
 * Vendors can configurte their stores. (Add logo, store description, banner.)
-* Vendor commissions are calculated and payment is done automatically.
+* Vendor commissions are calculated in fixed rate or percentage rate and payment is done automatically.
 * Vendors can export order details (all of his/her products' orders / for a particular product) in CSV format.
 * Vendors can add products.
 * Vendors can add coupons for their products.
@@ -114,6 +114,12 @@ Ans. This plugin is tested with php version 5.5.
 17. Customers can report abuse products.
 
 == Changelog ==
+= 1.1.0 =
+* Fix - New order email template to Vendor has been fixed. Now order calculation is Vendor specific.
+* Features - Split shipping amount to Vendors. Following shipping methods are supported: "Flat rate per item: Vendor can add flat rate class from their dashboard", "International delivery per item", "Local delivery per product".
+* Features - Commission can also be calculated in fixed rate.
+* Features - Vendor list can be sorted using "[dc_vendorslist]" shortcode.
+
 = 1.0.2 =
 * New Shortcode is added  as [vendor_coupons] to show vendor's coupon and the usage counted. Also added coupon information in vendor order details page.
 * Admin can edit vendor shop page url base from wordpress permalink settings page.
@@ -125,6 +131,12 @@ Ans. This plugin is tested with php version 5.5.
 * Initial version release.
 
 == Upgrade Notice ==
+= 1.1.0 =
+* Fix - New order email template to Vendor has been fixed. Now order calculation is Vendor specific.
+* Features - Split shipping amount to Vendors. Following shipping methods are supported: "Flat rate per item: Vendor can add flat rate class from their dashboard", "International delivery per item", "Local delivery per product".
+* Features - Commission can also be calculated in fixed rate.
+* Features - Vendor list can be sorted using "[dc_vendorslist]" shortcode.
+
 = 1.0.2 =
 * New Shortcode is added  as [vendor_coupons] to show vendor's coupon and the usage counted. Also added coupon information in vendor order details page.
 * Admin can edit vendor shop page url base from wordpress permalink settings page.

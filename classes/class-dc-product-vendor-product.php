@@ -134,6 +134,7 @@ class DC_Product_Vendor_Product {
 	*/
 	function output_vendor_tab() { 
 		global $post, $woocommerce;
+		$html = '';
 		$data = wp_get_post_terms( $post->ID, 'dc_vendor_shop', array("fields" => "ids"));
 		$commission_per_poduct = get_post_meta($post->ID, '_commission_per_product', true);
 		$current_user = get_current_user_id();
@@ -159,7 +160,7 @@ class DC_Product_Vendor_Product {
 			} else {
 				$html .= '';
 			}
-			$html .= '"/>%<td></tr>';	
+			$html .= '"/><td></tr>';	
 		}
 		$html .= '</tbody>' ;
 		$html .= '</table>';
@@ -206,7 +207,7 @@ class DC_Product_Vendor_Product {
 		$html = '<tr>
 								<td>
 									<div class="_product_vendors_commission">
-										<label for="_product_vendors_commission_' . $loop . '">' . __( 'Commission (%) ', $DC_Product_Vendor->text_domain ) . ':</label>
+										<label for="_product_vendors_commission_' . $loop . '">' . __( 'Commission', $DC_Product_Vendor->text_domain ) . ':</label>
 										<input size="4" type="text" name="variable_product_vendors_commission[' . $loop . ']" id="_product_vendors_commission_' . $loop . '" value="' . $commission . '" />
 									</div>
 								</td>
