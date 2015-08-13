@@ -106,7 +106,7 @@ class DC_Product_Vendor_Settings {
       ?>
       </form>
       <?php
-      if( $_GET['tab'] == 'payment') {
+      if( isset($_GET['tab']) && $_GET['tab'] == 'payment') {
       	if(wp_next_scheduled( 'paypal_masspay_cron_start' )) {
       		_e('<br><b>MassPay Sync</b><br>', $DC_Product_Vendor->text_domain);
 					printf( __('Next 3PL backorders cron @ %s', $DC_Product_Vendor->text_domain),  date('d/m/Y g:i:s A', wp_next_scheduled( 'paypal_masspay_cron_start' ))) ;

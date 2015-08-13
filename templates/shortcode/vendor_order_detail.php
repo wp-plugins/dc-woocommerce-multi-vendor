@@ -27,7 +27,7 @@ if( $vendor && $order_id ) {
 					<th><label for="product_name"><?php _e('Product Title', $DC_Product_Vendor->text_domain) ?></label></th>
 					<th><label for="product_qty"><?php _e('Product Quantity', $DC_Product_Vendor->text_domain) ?></label></th>
 					<th><label for="product_total"><?php _e('Line Subtotal', $DC_Product_Vendor->text_domain) ?></label></th>
-					<?php if ( in_array( $order->status, array( 'processing', 'completed' ) ) && ( $purchase_note = get_post_meta( $_product->id, '_purchase_note', true ) ) ) { ?>
+					<?php if ( in_array( $order->status, array( 'processing', 'completed' ) ) && ( $purchase_note = get_post_meta( $order_id, '_purchase_note', true ) ) ) { ?>
 						<th><label for="product_note"><?php _e('Purchase Note', $DC_Product_Vendor->text_domain) ?></label></th>
 					<?php }?>
 					<?php

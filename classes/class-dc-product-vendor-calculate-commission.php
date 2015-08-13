@@ -15,28 +15,30 @@ class DC_Product_Vendor_Calculate_Commission {
   public function process_commissions($order_id) {
   	global $DC_Product_Vendor;
 		// Only process commissions once
-			$processed = get_post_meta( $order_id, '_commissions_processed', $single = false );
-			if( $processed && $processed == 'yes' ) return;
-			$order = new WC_Order( $order_id );
-		
-			$items = $order->get_items( 'line_item' );
-		
-			foreach( $items as $item_id => $item ) {
-					if (isset( $item['variation_id']) && !empty( $item['variation_id'])) {
-						$variation_id = $item['variation_id'] ;
-					} 
-					
-					$product_id = $item['product_id'];
-					
-					
-					if(isset($DC_Product_Vendor->vendor_caps->general_cap['commission_include_coupon'])) $line_total = $order->get_item_total( $item, false, false ) * $item['qty'];
-					
-					else $line_total = $order->get_item_subtotal( $item, false, false ) * $item['qty'];
-					
-          
-					if( $product_id && $line_total ) {
-						$this->record_commission( $product_id, $line_total, $order_id, $variation_id );
-					}
+			$processed = get_post_meta( $order_id, '_commissions_processed', true);
+			if(! $processed ) {
+				$order = new WC_Order( $order_id );
+			
+				$items = $order->get_items( 'line_item' );
+				foreach( $items as $item_id => $item ) {
+						if (isset( $item['variation_id']) && !empty( $item['variation_id'])) {
+							$variation_id = $item['variation_id'] ;
+						} else {
+							$variation_id = false;
+						}
+						
+						$product_id = $item['product_id'];
+						
+						
+						if(isset($DC_Product_Vendor->vendor_caps->general_cap['commission_include_coupon'])) $line_total = $order->get_item_total( $item, false, false ) * $item['qty'];
+						
+						else $line_total = $order->get_item_subtotal( $item, false, false ) * $item['qty'];
+						
+						
+						if( $product_id && $line_total ) {
+							$this->record_commission( $product_id, $line_total, $order_id, $variation_id, $item['qty']);
+						}
+				}
 			}
 		
 			// Mark commissions as processed
@@ -49,11 +51,11 @@ class DC_Product_Vendor_Calculate_Commission {
 	* @param  int $line_total Line total of product
 	* @return void
 	*/
-	public function record_commission( $product_id = 0, $line_total = 0, $order_id = 0, $variation_id = 0 ) {
+	public function record_commission( $product_id = 0, $line_total = 0, $order_id = 0, $variation_id = 0, $item_dty = 1 ) {
 		global $DC_Product_Vendor;
 		if( $product_id > 0 && $line_total > 0 ) {
 			$vendor =  wp_get_post_terms( $product_id, 'dc_vendor_shop', array("fields" => "ids"));
-			if( $vendor ) {
+			if(!is_wp_error( $vendor ) && !empty($vendor)) {
 				$commission = $this->get_commission_percent( $product_id, $vendor[0], $variation_id );
 				if(isset($DC_Product_Vendor->vendor_caps->general_cap['commission_type'])) {
 					$commission_type = $DC_Product_Vendor->vendor_caps->general_cap['commission_type'];
@@ -64,7 +66,7 @@ class DC_Product_Vendor_Calculate_Commission {
 					if($commission_type == 'percent') {					
 						$amount = (float) $line_total * ( (float)$commission / 100 );
 					} else {
-						$amount = (float)$commission;
+						$amount = (float)$commission * (int)$item_dty;
 					}
 					$this->create_commission( $vendor[0], $product_id, $amount, $order_id, $variation_id);
 				}
@@ -112,6 +114,7 @@ class DC_Product_Vendor_Calculate_Commission {
 	 */
 	public function create_commission( $vendor_id = 0, $product_id = 0, $amount = 0 , $order_id = 0, $variation_id = 0 ) {
 		global $DC_Product_Vendor;
+		if($vendor_id == 0) return;
 		$commission_data = array(
 				'post_type'     => 'dc_commission',
 				'post_title'    => sprintf( __( 'Commission - %s', $DC_Product_Vendor->text_domain ), strftime( _x( '%B %e, %Y @ %I:%M %p', 'Commission date parsed by strftime', $DC_Product_Vendor->text_domain ) ) ),

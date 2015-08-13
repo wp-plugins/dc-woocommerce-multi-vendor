@@ -12,7 +12,7 @@ class WC_Vendor_Coupon_Shortcode {
 	 * @param array $atts
 	 * @return void
 	 */
-	public function output( $attr ) {
+	public static function output( $attr ) {
 		global $DC_Product_Vendor;
 		$DC_Product_Vendor->nocache();
 		$coupon_arr = array();

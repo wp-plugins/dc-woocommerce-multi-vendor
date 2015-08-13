@@ -307,21 +307,6 @@ final class DC_Product_Vendor {
   }
   
   
-  /**
-	 * Product Vendor Action Links Function
-	 *
-	 * @access public
-	 * @param plugin links
-	 * @return plugin links
-	*/	
-  function dc_product_vendor_action_links($links) {
-		global $DC_Product_Vendor;
-		$plugin_links = array(
-    '<a href="' . admin_url( 'admin.php?page=dc-product-vendor-setting-admin' ) . '">' . __( 'Settings', $DC_Product_Vendor->text_domain ) . '</a>'  );
-    return array_merge( $plugin_links, $links );
-	}
-	
-	
 	/**
 	 * Init Masspay Cron
 	 *

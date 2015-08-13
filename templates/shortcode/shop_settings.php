@@ -32,7 +32,7 @@ $vendor_hide_description = get_user_meta($user->ID, '_vendor_hide_description', 
 		
 		<p class="vendor_description">
 			<label style="width: 160px; display: inline-block;"><strong><?php _e('Biographical Info', $DC_Product_Vendor->text_domain) ?></strong>
-			<?php wp_editor( $vendor_description['value'], 'listingeditor', array('textarea_name' => vendor_description, 'textarea_rows' => 5) ); ?>
+			<?php wp_editor( $vendor_description['value'], 'listingeditor', array('textarea_name' => 'vendor_description', 'textarea_rows' => 5) ); ?>
 		</p>
 		
 		<p class="vendor_hide_description">
@@ -130,6 +130,7 @@ $vendor_hide_description = get_user_meta($user->ID, '_vendor_hide_description', 
 				<input type="button" class="remove_button button button-secondary" name="vendor_banner_remove_button" id="vendor_banner_remove_button" value="Remove" />
 			</span>
 		</p>
+		<?php do_action('other_exta_field_dcmv'); ?>
 		<br><br><p><input name="store_save" type="submit" value="<?php _e('Save', $DC_Product_Vendor->text_domain) ?>" /></p>
 	</form>
 <div>

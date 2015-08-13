@@ -12,7 +12,7 @@ class WC_Vendor_Report_Shortcode {
 	 * @param array $atts
 	 * @return void
 	 */
-	public function output( $attr ) {
+	public static function output( $attr ) {
 		global $DC_Product_Vendor;
 		$DC_Product_Vendor->nocache();
 		if ( ! defined( 'MNDASHBAOARD' ) ) define( 'MNDASHBAOARD', true );

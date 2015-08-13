@@ -21,7 +21,7 @@ class DC_Product_Vendor_Settings_Pages {
    */
   public function settings_page_init() {
     global $DC_Product_Vendor;
-    $pages = get_pages($args); 
+    $pages = get_pages(); 
     $woocommerce_pages = array ( woocommerce_get_page_id('shop'), woocommerce_get_page_id('cart'), woocommerce_get_page_id('checkout'), woocommerce_get_page_id('myaccount'));
     foreach ( $pages as $page ) {
     	if(!in_array($page->ID, $woocommerce_pages)) {

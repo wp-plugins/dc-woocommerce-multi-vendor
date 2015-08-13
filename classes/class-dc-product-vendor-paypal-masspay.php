@@ -13,7 +13,6 @@ class DC_Product_Vendor_Paypal_Masspay {
 	public $api_username;
 	public $api_pass;
 	public $api_signature;	
-	public $email_notify;
 	public $test_mode;
 	
 	public function __construct() {
@@ -24,7 +23,6 @@ class DC_Product_Vendor_Paypal_Masspay {
 			$this->api_username = $masspay_admin_settings['api_username'];
 			$this->api_pass = $masspay_admin_settings['api_pass'];
 			$this->api_signature = $masspay_admin_settings['api_signature'];
-			$this->email_notify = $masspay_admin_settings['is_email_notify'];
 			if(array_key_exists('is_testmode', $masspay_admin_settings)) {
 				$this->test_mode = true;
 			}

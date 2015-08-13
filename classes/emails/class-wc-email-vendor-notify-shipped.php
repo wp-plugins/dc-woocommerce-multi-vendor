@@ -116,6 +116,7 @@ class WC_Email_Notify_Shipped extends WC_Email {
      * @return void
      */
     function init_form_fields() {
+    	global $DC_Product_Vendor;
     	$this->form_fields = array(
 			'enabled' => array(
 				'title' 		=> __( 'Enable/Disable', $DC_Product_Vendor->text_domain ),

@@ -4,7 +4,7 @@ Tags: WooCommerce vedors, WooCommerce, Vendor, Multivendor, marketplace, seller,
 Donate link: https://dualcube.com/
 Requires at least: 3.8.1
 Tested up to: 4.2.3
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -114,6 +114,9 @@ Ans. This plugin is tested with php version 5.5.
 17. Customers can report abuse products.
 
 == Changelog ==
+= 1.1.1 =
+* Fix - Duplicate Commission Entry per order.
+
 = 1.1.0 =
 * Fix - New order email template to Vendor has been fixed. Now order calculation is Vendor specific.
 * Features - Split shipping amount to Vendors. Following shipping methods are supported: "Flat rate per item: Vendor can add flat rate class from their dashboard", "International delivery per item", "Local delivery per product".
@@ -131,6 +134,9 @@ Ans. This plugin is tested with php version 5.5.
 * Initial version release.
 
 == Upgrade Notice ==
+= 1.1.1 =
+* Fix - Duplicate Commission Entry per order.
+
 = 1.1.0 =
 * Fix - New order email template to Vendor has been fixed. Now order calculation is Vendor specific.
 * Features - Split shipping amount to Vendors. Following shipping methods are supported: "Flat rate per item: Vendor can add flat rate class from their dashboard", "International delivery per item", "Local delivery per product".

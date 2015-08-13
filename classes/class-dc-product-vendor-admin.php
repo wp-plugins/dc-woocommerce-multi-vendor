@@ -202,14 +202,14 @@ class DC_Product_Vendor_Admin {
 		  $DC_Product_Vendor->library->load_upload_lib();
 		  $DC_Product_Vendor->library->load_colorpicker_lib();
 		  $DC_Product_Vendor->library->load_datepicker_lib();
-		  wp_enqueue_script('admin_js', $DC_Product_Vendor->plugin_url.'assets/admin/js/admin.js', array('jquery'), $DC_Product_Vendor->version, true);
-		  wp_enqueue_style('admin_css',  $DC_Product_Vendor->plugin_url.'assets/admin/css/admin.css', array(), $DC_Product_Vendor->version);
+		  wp_enqueue_script('dc_product_vendor_admin_js', $DC_Product_Vendor->plugin_url.'assets/admin/js/admin.js', array('jquery'), $DC_Product_Vendor->version, true);
+		  wp_enqueue_style('dc_product_vendor_admin_css',  $DC_Product_Vendor->plugin_url.'assets/admin/css/admin.css', array(), $DC_Product_Vendor->version);
 	  endif;
 	  
 	  if (in_array( $screen->id, array( 'dc_commission' ))) :
 		  $DC_Product_Vendor->library->load_qtip_lib();
-		  wp_enqueue_script('admin_js', $DC_Product_Vendor->plugin_url.'assets/admin/js/admin.js', array('jquery'), $DC_Product_Vendor->version, true);
-		  wp_enqueue_style('admin_css',  $DC_Product_Vendor->plugin_url.'assets/admin/css/admin.css', array(), $DC_Product_Vendor->version);
+		  wp_enqueue_script('dc_product_vendor_admin_js', $DC_Product_Vendor->plugin_url.'assets/admin/js/admin.js', array('jquery'), $DC_Product_Vendor->version, true);
+		  wp_enqueue_style('dc_product_vendor_admin_css',  $DC_Product_Vendor->plugin_url.'assets/admin/css/admin.css', array(), $DC_Product_Vendor->version);
 			if( ! wp_style_is( 'woocommerce_chosen_styles', 'queue' ) ) {
 				wp_enqueue_style( 'woocommerce_chosen_styles', $woocommerce->plugin_url() . '/assets/css/chosen.css' );
 			}
@@ -222,8 +222,8 @@ class DC_Product_Vendor_Admin {
 	  	  
 	  if (in_array( $screen->id, array( 'product' ))) :
 		  $DC_Product_Vendor->library->load_qtip_lib();
-		  wp_enqueue_script('admin_js', $DC_Product_Vendor->plugin_url.'assets/admin/js/admin.js', array('jquery'), $DC_Product_Vendor->version, true);
-		  wp_enqueue_style('admin_css',  $DC_Product_Vendor->plugin_url.'assets/admin/css/admin.css', array(), $DC_Product_Vendor->version);
+		  wp_enqueue_script('dc_product_vendor_admin_js', $DC_Product_Vendor->plugin_url.'assets/admin/js/admin.js', array('jquery'), $DC_Product_Vendor->version, true);
+		  wp_enqueue_style('dc_product_vendor_admin_css',  $DC_Product_Vendor->plugin_url.'assets/admin/css/admin.css', array(), $DC_Product_Vendor->version);
 			if( ! wp_style_is( 'woocommerce_chosen_styles', 'queue' ) ) {
 				wp_enqueue_style( 'woocommerce_chosen_styles', $woocommerce->plugin_url() . '/assets/css/chosen.css' );
 			}
@@ -231,12 +231,13 @@ class DC_Product_Vendor_Admin {
 			wp_enqueue_script( 'ajax-chosen' );
 			wp_enqueue_script( 'chosen' );
 			wp_enqueue_script('commission_js', $DC_Product_Vendor->plugin_url.'assets/admin/js/product.js', array('jquery'), $DC_Product_Vendor->version, true);
+			wp_localize_script('commission_js', 'dc_vendor_object', array('security' => wp_create_nonce("search-products")));
 	  endif;
 	  
 		if (in_array( $screen->id, array( 'user-edit', 'profile'))) :
 			$DC_Product_Vendor->library->load_qtip_lib();
 			$DC_Product_Vendor->library->load_upload_lib();
-			wp_enqueue_script('admin_js', $DC_Product_Vendor->plugin_url.'assets/admin/js/admin.js', array('jquery'), $DC_Product_Vendor->version, true);
+			wp_enqueue_script('dc_product_vendor_admin_js', $DC_Product_Vendor->plugin_url.'assets/admin/js/admin.js', array('jquery'), $DC_Product_Vendor->version, true);
 			wp_enqueue_style('admin_user',  $DC_Product_Vendor->plugin_url.'assets/admin/css/admin-user.css', array(), $DC_Product_Vendor->version);
 		endif;
 	  

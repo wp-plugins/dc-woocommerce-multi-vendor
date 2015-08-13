@@ -4,7 +4,7 @@ Plugin Name: DC WooCommerce Multi Vendor
 Plugin URI: http://dualcube.com
 Description: Set up vendor market place that allows vendor to manage their own products and earn commission easily.
 Author: Dualcube, Mousumi Saha
-Version: 1.1.0
+Version: 1.1.1
 Author URI: http://dualcube.com
 */
 
@@ -25,14 +25,14 @@ if(!class_exists('DC_Product_Vendor') && WC_Dependencies_Product_Vendor::is_wooc
 	register_activation_hook( __FILE__, array('DC_Product_Vendor', 'activate_dc_product_vendor_plugin') );
 	register_activation_hook( __FILE__, 'flush_rewrite_rules' );
 	if( is_admin() && ! defined( 'DOING_AJAX' ) ) {
-		add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array('DC_Product_Vendor', 'dc_product_vendor_action_links') );
+		add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'dc_product_vendor_action_links');
 	}
 } else {
 	add_action( 'admin_notices', 'dc_admin_notice' );
 	function dc_admin_notice() {
 		?>
     <div class="error">
-        <p><?php _e( 'This plugin requires <a href="http://wordpress.org/extend/plugins/woocommerce/">WooCommerce</a> plugins to be active!', TEXT_DOMAIN ); ?></p>
+        <p><?php _e( 'DC WooCommerce Multi Vendor plugin requires <a href="http://wordpress.org/extend/plugins/woocommerce/">WooCommerce</a> plugins to be active!', TEXT_DOMAIN ); ?></p>
     </div>
     <?php
 	}

@@ -10,12 +10,12 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 class DC_Product_Vendor_Product {
 
 	public function __construct() {
+		
+		add_action(	'woocommerce_product_write_panel_tabs', array( &$this, 'add_vendor_tab' ), 30);
+		add_action(	'woocommerce_product_write_panels', array( &$this, 'output_vendor_tab'), 30);
+		add_action(	'save_post', array( &$this, 'process_vendor_data' ) );
+		add_action( 'woocommerce_product_after_variable_attributes', array( $this, 'add_variation_settings' ), 10, 3 );
 		if( is_admin() ) {
-			add_action(	'woocommerce_product_write_panel_tabs', array( &$this, 'add_vendor_tab' ), 30);
-			add_action(	'woocommerce_product_write_panels', array( &$this, 'output_vendor_tab'), 30);
-			add_action(	'save_post', array( &$this, 'process_vendor_data' ) );
-			add_action( 'woocommerce_product_after_variable_attributes', array( $this, 'add_variation_settings' ), 10, 3 );
-			//add_filter( 'wp_insert_post_data' , array( $this, 'dont_publish_product') , '99', 2);
 			add_filter('pre_get_posts', array( $this, 'convert_business_id_to_taxonomy_term_in_query'));
 			add_action( 'transition_post_status',  array( $this, 'on_all_status_transitions'), 10, 3 );
 		}
@@ -247,27 +247,13 @@ class DC_Product_Vendor_Product {
 		woocommerce_get_template('templates/vendor_tab.php', array(),'', $DC_Product_Vendor->plugin_path );
 	}
 	
-	function dont_publish_product( $data , $postarr ) {
-		global $DC_Product_Vendor;
-		$vendor = is_user_dc_vendor(get_current_user_id());
-		if($vendor) {
-			$vendor_can = $DC_Product_Vendor->vendor_caps->vendor_capabilities_settings('is_published_product');
-			if($vendor_can) {
-				if($data['post_type'] == 'product') {
-					$data['post_status'] = 'draft';   
-				}
-			}
-		}
-		return $data;   
-	}
-	
 	/**
 	* add tax query on product page
 	* @return void
 	*/
 	function convert_business_id_to_taxonomy_term_in_query($query) {
     global $pagenow;
-    if($_GET['post_type'] == 'product' && $pagenow == 'edit.php') {
+    if(isset($_GET['post_type']) && $_GET['post_type'] == 'product' && $pagenow == 'edit.php') {
     	$current_user_id = get_current_user_id();
     	$current_user = get_user_by('id', $current_user_id );
 			if(!in_array( 'dc_vendor', $current_user->roles )) return $query;

@@ -1,5 +1,5 @@
 <?php
-if(class_exists('DC_WP_Fields')) return;
+if(!class_exists('DC_WP_Fields')) {
 class DC_WP_Fields {
   
   /**
@@ -843,4 +843,5 @@ class DC_WP_Fields {
 
     return $field;
   }
+}
 }
